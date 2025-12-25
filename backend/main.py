@@ -1,4 +1,4 @@
-# backend/main.py - FIXED IMPORTS
+# backend/main.py - FIXED FOR PROMPT-ONLY MODE
 
 import sys
 import os
@@ -12,7 +12,7 @@ sys.path.insert(0, str(project_root))
 from dotenv import load_dotenv
 load_dotenv()
 
-from fastapi import FastAPI, UploadFile, File, HTTPException, BackgroundTasks
+from fastapi import FastAPI, UploadFile, File, HTTPException, BackgroundTasks, Form
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 import shutil
@@ -25,9 +25,9 @@ from backend.models import EditRequest, ProjectResponse
 from core.video_pipeline import EnhancedVideoPipeline, Operation
 
 app = FastAPI(
-    title="NeuralFlare AI Video Editor - Enhanced",
-    description="AI-powered video editing with emotion analysis and creative intelligence",
-    version="2.0-Advanced"
+    title="NeuralFlare AI Video Editor - Prompt-Only Mode",
+    description="AI-powered video editing - executes only what you request",
+    version="2.0-PromptOnly"
 )
 
 # CORS
@@ -39,7 +39,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Initialize ENHANCED components
+# Initialize components
 ai_brain = AdvancedAIBrain()
 db = ProjectDB()
 pipeline = EnhancedVideoPipeline()
@@ -53,23 +53,40 @@ os.makedirs("assets/music", exist_ok=True)
 @app.get("/")
 async def root():
     return {
-        "message": "NeuralFlare AI Video Editor API - Enhanced Edition",
-        "version": "2.0-Advanced",
+        "message": "NeuralFlare AI Video Editor API - Prompt-Only Mode",
+        "version": "2.0-PromptOnly",
         "status": "operational",
+        "mode": "PROMPT-ONLY",
         "features": [
-            "Emotional Intelligence Analysis",
-            "Creative Decision Engine",
-            "Narrative Restructuring",
-            "Multi-Platform Optimization",
-            "AI Director + Coach"
+            "Execute only user-specified operations",
+            "No automatic operations",
+            "Smart prompt detection",
+            "Multi-Platform Optimization"
         ],
-        "ai_brain": "advanced"
+        "examples": [
+            "remove noise and add subtitles",
+            "enhance audio and remove silence",
+            "add music and optimize for instagram",
+            "remove fillers and add captions"
+        ]
     }
 
 @app.post("/api/analyze")
 async def analyze_request(request: EditRequest):
-    """AI analyzes editing request with emotional intelligence"""
+    """AI analyzes editing request - PROMPT-ONLY MODE"""
     try:
+        # Check for empty prompt
+        if not request.user_prompt or len(request.user_prompt.strip()) < 3:
+            return {
+                "success": False,
+                "error": "Empty prompt",
+                "message": "Please specify what you want to do. Examples: 'remove noise and add subtitles', 'enhance audio', 'add music for instagram'",
+                "plan": {
+                    "analysis": {"mode": "error"},
+                    "operations": []
+                }
+            }
+        
         video_metadata = {
             "duration": 180,
             "resolution": "1920x1080",
@@ -77,25 +94,43 @@ async def analyze_request(request: EditRequest):
             "has_audio": True
         }
         
+        # Get AI plan based on prompt ONLY
         plan = await ai_brain.analyze_request(request.user_prompt, video_metadata)
+        
+        # Check if operations were detected
+        operations = plan.get("operations", [])
+        if not operations:
+            return {
+                "success": False,
+                "error": "No operations detected",
+                "message": f"Could not understand your request: '{request.user_prompt}'. Please be more specific. Examples: 'remove background noise', 'add subtitles', 'enhance audio and remove silence'",
+                "plan": plan
+            }
         
         return {
             "success": True,
             "plan": plan,
-            "estimated_time": len(plan.get("operations", [])) * 30,
-            "features_used": [
-                "Emotion Analysis" if any(op["name"] == "analyze_emotions" for op in plan.get("operations", [])) else None,
-                "Key Moment Detection" if any(op["name"] == "identify_key_moments" for op in plan.get("operations", [])) else None,
-                "Platform Optimization" if any(op["name"] == "platform_optimize" for op in plan.get("operations", [])) else None
-            ]
+            "estimated_time": len(operations) * 30,
+            "operations_count": len(operations),
+            "operations_list": [op["name"].replace("_", " ").title() for op in operations]
         }
     except Exception as e:
+        import traceback
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/api/analyze/complete")
 async def analyze_complete(request: EditRequest):
-    """Complete AI analysis with full workflow planning"""
+    """Complete AI analysis - PROMPT-ONLY MODE"""
     try:
+        # Check for empty prompt
+        if not request.user_prompt or len(request.user_prompt.strip()) < 3:
+            return {
+                "success": False,
+                "error": "Empty prompt",
+                "message": "Please describe what edits you want"
+            }
+        
         video_metadata = {
             "duration": 180,
             "resolution": "1920x1080",
@@ -110,29 +145,21 @@ async def analyze_complete(request: EditRequest):
         operations = plan.get("operations", [])
         creative_decisions = plan.get("creative_decisions", {})
         
-        # Calculate engagement score (0-10)
-        engagement_factors = []
-        if any(op["name"] == "analyze_emotions" for op in operations):
-            engagement_factors.append(2)
-        if any(op["name"] == "add_music" for op in operations):
-            engagement_factors.append(2)
-        if any(op["name"] == "add_subtitles" for op in operations):
-            engagement_factors.append(2)
-        if any(op["name"] == "color_correction" for op in operations):
-            engagement_factors.append(2)
-        if any(op["name"] == "identify_key_moments" for op in operations):
-            engagement_factors.append(2)
+        # Check if operations were detected
+        if not operations:
+            return {
+                "success": False,
+                "error": "No operations detected",
+                "message": f"Could not detect any operations from: '{request.user_prompt}'"
+            }
         
-        engagement_score = min(10, sum(engagement_factors))
+        # Calculate engagement score
+        engagement_score = min(10, len(operations) * 2)
         
         return {
             "success": True,
             "workflow_plan": {
-                "analysis": {
-                    "emotion": analysis.get("detected_emotion", "balanced"),
-                    "content_type": analysis.get("content_type", "general"),
-                    "quality_score": 8.5
-                },
+                "analysis": analysis,
                 "operations": [
                     {
                         **op,
@@ -144,19 +171,18 @@ async def analyze_complete(request: EditRequest):
                 "creative_decisions": creative_decisions
             },
             "key_insights": {
-                "detected_emotion": analysis.get("detected_emotion", "balanced"),
-                "content_type": analysis.get("content_type", "general"),
+                "mode": "prompt-only",
+                "detected_emotion": analysis.get("detected_emotion", "none"),
+                "platform": analysis.get("platform", "youtube"),
                 "total_operations": len(operations),
                 "engagement_score": engagement_score
             },
             "estimated_time": len(operations) * 30,
-            "features_used": {
-                "emotion_analysis": any(op["name"] == "analyze_emotions" for op in operations),
-                "key_moments": any(op["name"] == "identify_key_moments" for op in operations),
-                "platform_optimization": any(op["name"] == "platform_optimize" for op in operations)
-            }
+            "operations_list": [op["name"].replace("_", " ").title() for op in operations]
         }
     except Exception as e:
+        import traceback
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=str(e))
 
 def _get_operation_phase(operation_name: str) -> str:
@@ -166,11 +192,15 @@ def _get_operation_phase(operation_name: str) -> str:
         "identify_key_moments": "Analysis",
         "remove_fillers": "Core Editing",
         "remove_silence": "Core Editing",
-        "enhance_audio": "Core Editing",
+        "enhance_audio": "Audio Enhancement",
+        "remove_background_noise": "Audio Enhancement",
+        "isolate_voice": "Audio Enhancement",
         "add_subtitles": "Creative Enhancement",
         "add_music": "Creative Enhancement",
-        "color_correction": "Creative Enhancement",
-        "platform_optimize": "Platform Optimization"
+        "color_correction": "Visual Enhancement",
+        "brightness_adjustment": "Visual Enhancement",
+        "platform_optimize": "Platform Optimization",
+        "detect_bad_words": "Content Moderation"
     }
     return phase_map.get(operation_name, "Processing")
 
@@ -182,22 +212,33 @@ def _estimate_operation_time(operation_name: str) -> int:
         "remove_fillers": 20,
         "remove_silence": 25,
         "enhance_audio": 15,
+        "remove_background_noise": 20,
+        "isolate_voice": 25,
         "add_subtitles": 40,
         "add_music": 10,
         "color_correction": 30,
-        "platform_optimize": 20
+        "brightness_adjustment": 15,
+        "platform_optimize": 20,
+        "detect_bad_words": 30
     }
     return time_map.get(operation_name, 30)
 
 @app.post("/api/upload", response_model=ProjectResponse)
 async def upload_video(
     video: UploadFile = File(...),
-    prompt: str = "",
-    reference: Optional[UploadFile] = None,
-    music: Optional[UploadFile] = None
+    prompt: str = Form(""),
+    reference: Optional[UploadFile] = File(None),
+    music: Optional[UploadFile] = File(None)
 ):
     """Upload video and create project"""
     try:
+        # Validate prompt
+        if not prompt or len(prompt.strip()) < 3:
+            raise HTTPException(
+                status_code=400,
+                detail="Prompt is required. Please specify what edits you want (e.g., 'remove noise and add subtitles')"
+            )
+        
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         video_filename = f"{timestamp}_{video.filename}"
         video_path = f"data/uploads/{video_filename}"
@@ -230,22 +271,33 @@ async def upload_video(
         return ProjectResponse(
             project_id=project_id,
             status="uploaded",
-            message="Video uploaded successfully - Ready for AI analysis"
+            message=f"Video uploaded - Will execute: {prompt}"
         )
     
+    except HTTPException:
+        raise
     except Exception as e:
+        import traceback
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/api/upload/multiplatform", response_model=ProjectResponse)
 async def upload_multiplatform(
     video: UploadFile = File(...),
-    prompt: str = "",
-    platforms: str = "youtube,instagram,tiktok",
-    reference: Optional[UploadFile] = None,
-    music: Optional[UploadFile] = None
+    prompt: str = Form(""),
+    platforms: str = Form("youtube,instagram,tiktok"),
+    reference: Optional[UploadFile] = File(None),
+    music: Optional[UploadFile] = File(None)
 ):
     """Upload video for multi-platform optimization"""
     try:
+        # Validate prompt
+        if not prompt or len(prompt.strip()) < 3:
+            raise HTTPException(
+                status_code=400,
+                detail="Prompt is required. Please specify what edits you want (e.g., 'remove noise and add subtitles')"
+            )
+        
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         video_filename = f"{timestamp}_{video.filename}"
         video_path = f"data/uploads/{video_filename}"
@@ -283,24 +335,45 @@ async def upload_multiplatform(
         return ProjectResponse(
             project_id=project_id,
             status="uploaded",
-            message=f"Video uploaded for {len(platform_list)} platforms - Ready for AI optimization"
+            message=f"Video uploaded for {len(platform_list)} platforms - Will execute: {prompt}"
         )
     
+    except HTTPException:
+        raise
     except Exception as e:
+        import traceback
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=str(e))
 
 async def process_video_background(project_id: str):
-    """Background task to process video with enhanced AI"""
+    """Background task to process video - PROMPT-ONLY MODE"""
     try:
         project = db.get_project(project_id)
         if not project:
+            print(f"❌ Project not found: {project_id}")
             return
+        
+        # Check for valid prompt
+        user_prompt = project.get("user_prompt", "").strip()
+        if not user_prompt or len(user_prompt) < 3:
+            print(f"❌ Empty prompt for project: {project_id}")
+            db.update_project(project_id, {
+                "status": "failed",
+                "error": "Empty prompt - no operations specified"
+            })
+            return
+        
+        print(f"\n{'='*70}")
+        print(f"🎬 PROCESSING PROJECT: {project_id}")
+        print(f"📝 User Prompt: '{user_prompt}'")
+        print(f"{'='*70}\n")
         
         db.update_project(project_id, {"status": "analyzing"})
         
-        # Get enhanced video metadata
+        # Get video metadata
         from moviepy.editor import VideoFileClip
         try:
+            print("📹 Loading video metadata...")
             temp_video = VideoFileClip(project["input_video"])
             video_metadata = {
                 "duration": temp_video.duration,
@@ -309,43 +382,97 @@ async def process_video_background(project_id: str):
                 "has_audio": temp_video.audio is not None
             }
             temp_video.close()
-        except:
-            video_metadata = {"duration": 120, "resolution": "1920x1080", "fps": 30}
+            print(f"✅ Video: {video_metadata['duration']:.1f}s, {video_metadata['resolution']}, {video_metadata['fps']}fps")
+        except Exception as e:
+            print(f"⚠️ Could not read video metadata: {e}")
+            video_metadata = {"duration": 120, "resolution": "1920x1080", "fps": 30, "has_audio": True}
         
-        plan = await ai_brain.analyze_request(project["user_prompt"], video_metadata)
+        # Get AI plan from prompt ONLY
+        print("\n🧠 AI BRAIN: Analyzing prompt...")
+        plan = await ai_brain.analyze_request(user_prompt, video_metadata)
+        
+        # Check if operations were detected
+        operations_data = plan.get("operations", [])
+        if not operations_data or len(operations_data) == 0:
+            print(f"❌ No operations detected from prompt: '{user_prompt}'")
+            db.update_project(project_id, {
+                "status": "failed",
+                "error": f"No operations detected from prompt: '{user_prompt}'. Please be more specific."
+            })
+            return
+        
+        print(f"✅ Detected {len(operations_data)} operations:")
+        for op in operations_data:
+            print(f"   - {op['name'].replace('_', ' ').title()}")
         
         db.update_project(project_id, {
             "status": "processing",
             "ai_analysis": plan.get("analysis", {}),
-            "creative_decisions": plan.get("creative_decisions", {})
+            "creative_decisions": plan.get("creative_decisions", {}),
+            "operations_detected": len(operations_data)
         })
         
-        operations = [
-            Operation(
+        # Convert to Operation objects
+        print(f"\n⚙️ Creating operation pipeline...")
+        operations = []
+        for op in operations_data:
+            operation = Operation(
                 name=op["name"],
                 priority=op.get("priority", 999),
                 params=op.get("params", {})
             )
-            for op in plan.get("operations", [])
-        ]
+            operations.append(operation)
+            print(f"   ✓ Added: {operation.name} (priority: {operation.priority})")
         
+        print(f"\n🎬 Starting video pipeline with {len(operations)} operations...\n")
+        
+        # Process video
         output_path = f"data/outputs/{project_id}_output.mp4"
-        result = pipeline.process(
-            input_path=project["input_video"],
-            operations=operations,
-            output_path=output_path
-        )
         
-        db.update_project(project_id, {
-            "status": "completed",
-            "output_video": result["output_path"],
-            "editing_plan": plan,
-            "video_metadata": result["metadata"],
-            "completed_at": datetime.now().isoformat()
-        })
+        try:
+            result = pipeline.process(
+                input_path=project["input_video"],
+                operations=operations,
+                output_path=output_path
+            )
+            
+            print(f"\n✅ PROCESSING COMPLETE!")
+            print(f"📂 Output saved: {output_path}")
+            
+            # Check if file was created
+            if os.path.exists(output_path):
+                file_size = os.path.getsize(output_path) / (1024 * 1024)
+                print(f"📊 File size: {file_size:.2f} MB")
+                
+                db.update_project(project_id, {
+                    "status": "completed",
+                    "output_video": result["output_path"],
+                    "editing_plan": plan,
+                    "video_metadata": result["metadata"],
+                    "completed_at": datetime.now().isoformat(),
+                    "output_file_size_mb": file_size
+                })
+                print(f"✅ Database updated: Status = completed")
+            else:
+                print(f"❌ Output file not created: {output_path}")
+                db.update_project(project_id, {
+                    "status": "failed",
+                    "error": "Output file was not created"
+                })
+        
+        except Exception as e:
+            print(f"\n❌ PIPELINE ERROR: {e}")
+            import traceback
+            traceback.print_exc()
+            db.update_project(project_id, {
+                "status": "failed",
+                "error": f"Pipeline error: {str(e)}"
+            })
     
     except Exception as e:
-        print(f"Processing error: {e}")
+        print(f"\n❌ BACKGROUND PROCESSING ERROR: {e}")
+        import traceback
+        traceback.print_exc()
         db.update_project(project_id, {
             "status": "failed",
             "error": str(e)
@@ -353,18 +480,26 @@ async def process_video_background(project_id: str):
 
 @app.post("/api/process/{project_id}", response_model=ProjectResponse)
 async def process_video(project_id: str, background_tasks: BackgroundTasks):
-    """Start processing with enhanced AI"""
+    """Start processing - PROMPT-ONLY MODE"""
     try:
         project = db.get_project(project_id)
         if not project:
             raise HTTPException(status_code=404, detail="Project not found")
+        
+        # Validate prompt
+        user_prompt = project.get("user_prompt", "").strip()
+        if not user_prompt or len(user_prompt) < 3:
+            raise HTTPException(
+                status_code=400,
+                detail="No prompt specified. Cannot process without instructions."
+            )
         
         background_tasks.add_task(process_video_background, project_id)
         
         return ProjectResponse(
             project_id=project_id,
             status="processing",
-            message="AI Brain analyzing emotions and planning creative edits..."
+            message=f"Processing based on your request: {user_prompt}"
         )
     
     except Exception as e:
@@ -372,11 +507,19 @@ async def process_video(project_id: str, background_tasks: BackgroundTasks):
 
 @app.post("/api/process/complete/{project_id}", response_model=ProjectResponse)
 async def process_video_complete(project_id: str, background_tasks: BackgroundTasks):
-    """Start complete processing workflow with all AI features"""
+    """Start complete processing workflow - PROMPT-ONLY MODE"""
     try:
         project = db.get_project(project_id)
         if not project:
             raise HTTPException(status_code=404, detail="Project not found")
+        
+        # Validate prompt
+        user_prompt = project.get("user_prompt", "").strip()
+        if not user_prompt or len(user_prompt) < 3:
+            raise HTTPException(
+                status_code=400,
+                detail="No prompt specified. Cannot process without instructions."
+            )
         
         # Check if multiplatform
         is_multiplatform = project.get("multiplatform", False)
@@ -385,9 +528,9 @@ async def process_video_complete(project_id: str, background_tasks: BackgroundTa
         # Start background processing
         background_tasks.add_task(process_video_background, project_id)
         
-        message = "AI Brain analyzing emotions and planning creative edits..."
+        message = f"Processing based on your request: {user_prompt}"
         if is_multiplatform:
-            message = f"Processing for {len(platforms)} platforms: {', '.join(platforms)}"
+            message = f"Processing for {len(platforms)} platforms: {', '.join(platforms)} - {user_prompt}"
         
         return ProjectResponse(
             project_id=project_id,
@@ -395,22 +538,26 @@ async def process_video_complete(project_id: str, background_tasks: BackgroundTa
             message=message
         )
     
+    except HTTPException:
+        raise
     except Exception as e:
+        import traceback
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/status/{project_id}")
 async def get_status(project_id: str):
-    """Get project status with detailed progress"""
+    """Get project status"""
     project = db.get_project(project_id)
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
     
     status_messages = {
-        "uploaded": "Video uploaded, ready to process",
-        "analyzing": "AI Brain analyzing emotions and content...",
-        "processing": "Applying creative edits based on AI analysis...",
-        "completed": "Video ready! AI-powered edits complete",
-        "failed": "Processing failed"
+        "uploaded": f"Ready to process: {project.get('user_prompt', 'No prompt')}",
+        "analyzing": "Analyzing your request...",
+        "processing": "Applying requested edits...",
+        "completed": "Processing complete!",
+        "failed": f"Failed: {project.get('error', 'Unknown error')}"
     }
     
     return {
@@ -426,22 +573,22 @@ async def get_detailed_status(project_id: str):
         raise HTTPException(status_code=404, detail="Project not found")
     
     status_messages = {
-        "uploaded": "Video uploaded, ready to process",
-        "analyzing": "AI Brain analyzing emotions and content...",
-        "processing": "Applying creative edits based on AI analysis...",
-        "completed": "Video ready! AI-powered edits complete",
-        "failed": "Processing failed"
+        "uploaded": f"Ready to process: {project.get('user_prompt', 'No prompt')}",
+        "analyzing": "Analyzing your request...",
+        "processing": "Applying requested edits...",
+        "completed": "Processing complete!",
+        "failed": f"Failed: {project.get('error', 'Unknown error')}"
     }
     
     phase_messages = {
         "uploaded": "📥 Phase 1: Video Upload Complete",
-        "analyzing": "🧠 Phase 2: AI Emotion Analysis",
-        "processing": "⚙️ Phase 3-4: Processing & Platform Optimization",
-        "completed": "✅ Phase 5-6: Final Output Ready",
+        "analyzing": "🧠 Phase 2: Analyzing Request",
+        "processing": "⚙️ Phase 3-4: Processing Operations",
+        "completed": "✅ Phase 5-6: Complete",
         "failed": "❌ Processing Failed"
     }
     
-    # Calculate progress percentage
+    # Calculate progress
     progress = 0
     if project["status"] == "uploaded":
         progress = 10
@@ -451,10 +598,7 @@ async def get_detailed_status(project_id: str):
         progress = 70
     elif project["status"] == "completed":
         progress = 100
-    elif project["status"] == "failed":
-        progress = 0
     
-    # Get metadata
     video_metadata = project.get("video_metadata", {})
     ai_analysis = project.get("ai_analysis", {})
     creative_decisions = project.get("creative_decisions", {})
@@ -482,7 +626,7 @@ async def get_detailed_status(project_id: str):
 
 @app.get("/api/download/{project_id}")
 async def download_video(project_id: str):
-    """Download processed video (master version)"""
+    """Download processed video"""
     project = db.get_project(project_id)
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
@@ -494,18 +638,10 @@ async def download_video(project_id: str):
     if not output_path or not os.path.exists(output_path):
         raise HTTPException(status_code=404, detail="Video file not found")
     
-    # Get file size for logging
-    file_size = os.path.getsize(output_path)
-    print(f"📥 Downloading: {project_id} ({file_size / (1024*1024):.2f} MB)")
-    
     return FileResponse(
         output_path,
         media_type="video/mp4",
-        filename=f"{project_id}_edited.mp4",
-        headers={
-            "Content-Disposition": f'attachment; filename="{project_id}_edited.mp4"',
-            "Cache-Control": "no-cache"
-        }
+        filename=f"{project_id}_edited.mp4"
     )
 
 @app.get("/api/download/{project_id}/{platform}")
@@ -518,23 +654,15 @@ async def download_platform_video(project_id: str, platform: str):
     if project["status"] != "completed":
         raise HTTPException(status_code=400, detail="Video not ready")
     
-    # Map platform to output file
     platform = platform.lower()
-    
-    # For now, return the same file (in future, you can generate platform-specific versions)
     output_path = project.get("output_video")
     
-    # Check for platform-specific output
     platform_output = project.get(f"output_{platform}")
     if platform_output and os.path.exists(platform_output):
         output_path = platform_output
     
     if not output_path or not os.path.exists(output_path):
         raise HTTPException(status_code=404, detail=f"Video file not found for {platform}")
-    
-    # Get file size for logging
-    file_size = os.path.getsize(output_path)
-    print(f"📥 Downloading {platform} version: {project_id} ({file_size / (1024*1024):.2f} MB)")
     
     filename_map = {
         "youtube": f"{project_id}_youtube_16x9.mp4",
@@ -548,16 +676,12 @@ async def download_platform_video(project_id: str, platform: str):
     return FileResponse(
         output_path,
         media_type="video/mp4",
-        filename=filename,
-        headers={
-            "Content-Disposition": f'attachment; filename="{filename}"',
-            "Cache-Control": "no-cache"
-        }
+        filename=filename
     )
 
 @app.get("/api/preview/{project_id}")
 async def preview_video(project_id: str):
-    """Stream video for preview (doesn't trigger download)"""
+    """Stream video for preview"""
     project = db.get_project(project_id)
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
@@ -628,7 +752,6 @@ async def delete_project(project_id: str):
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
     
-    # Delete files
     deleted_files = []
     for key in ["input_video", "output_video", "reference_video", "background_music"]:
         file_path = project.get(key)
@@ -636,11 +759,10 @@ async def delete_project(project_id: str):
             try:
                 os.remove(file_path)
                 deleted_files.append(key)
-                print(f"🗑️  Deleted {key}: {file_path}")
+                print(f"🗑️ Deleted {key}: {file_path}")
             except Exception as e:
-                print(f"⚠️  Could not delete {key}: {e}")
+                print(f"⚠️ Could not delete {key}: {e}")
     
-    # Delete from database
     db.delete_project(project_id)
     
     return {
@@ -648,42 +770,37 @@ async def delete_project(project_id: str):
         "deleted_files": deleted_files
     }
 
+@app.get("/api/features")
+async def list_features():
+    """List all available features"""
+    return {
+        "mode": "prompt-only",
+        "description": "Only executes operations specified in your prompt",
+        "available_operations": {
+            "audio": ["remove_background_noise", "enhance_audio", "isolate_voice"],
+            "editing": ["remove_silence", "remove_fillers", "trim_by_emotion"],
+            "visual": ["brightness_adjustment", "color_correction", "stabilization"],
+            "creative": ["add_subtitles", "add_music", "add_filters"],
+            "moderation": ["detect_bad_words"],
+            "optimization": ["platform_optimize", "aspect_ratio", "compression"]
+        },
+        "example_prompts": [
+            "remove noise and add subtitles",
+            "enhance audio and remove silence",
+            "add music and optimize for instagram",
+            "remove fillers and add captions",
+            "brighten video and add music"
+        ]
+    }
+
 @app.get("/health")
 async def health_check():
     return {
         "status": "healthy",
-        "ai_brain": "advanced",
-        "features": {
-            "emotion_analysis": True,
-            "creative_decisions": True,
-            "platform_optimization": True,
-            "narrative_restructuring": True
-        },
+        "mode": "PROMPT-ONLY",
+        "message": "Only executes operations specified in user prompt",
         "database": "connected",
         "timestamp": datetime.now().isoformat()
-    }
-
-@app.get("/api/features")
-async def list_features():
-    """List all available AI features"""
-    return {
-        "emotional_intelligence": {
-            "description": "Analyzes facial expressions, voice tone, and energy",
-            "operations": ["analyze_emotions", "identify_key_moments"]
-        },
-        "creative_decisions": {
-            "description": "AI selects editing styles, music, pacing",
-            "operations": ["add_music", "color_correction", "add_subtitles"]
-        },
-        "narrative_restructuring": {
-            "description": "Reorganizes footage into story arcs",
-            "operations": ["identify_key_moments", "remove_silence"]
-        },
-        "multi_platform": {
-            "description": "Optimizes for YouTube, Instagram, TikTok",
-            "operations": ["platform_optimize"],
-            "platforms": ["youtube (16:9)", "instagram (9:16)", "tiktok (9:16)"]
-        }
     }
 
 if __name__ == "__main__":

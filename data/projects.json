@@ -14439,5 +14439,1053 @@
       "tiktok"
     ],
     "multiplatform": true
+  },
+  {
+    "id": "proj_33_20251226_020829",
+    "created_at": "2025-12-26T02:08:29.916267",
+    "status": "processing",
+    "input_video": "data/uploads/20251226_020829_emotion analysis.mp4",
+    "user_prompt": "",
+    "reference_video": null,
+    "background_music": null,
+    "platforms": [
+      "youtube",
+      "instagram",
+      "tiktok"
+    ],
+    "multiplatform": true,
+    "updated_at": "2025-12-26T02:08:31.880769",
+    "ai_analysis": {
+      "mode": "auto",
+      "detected_emotion": "balanced",
+      "platform": "youtube",
+      "operations_count": 10,
+      "user_instructions": false
+    },
+    "creative_decisions": {
+      "target_emotion": null,
+      "trim_boring": false,
+      "remove_dull": false,
+      "bad_word_filter": true,
+      "audio_enhancement": true,
+      "visual_enhancement": false
+    }
+  },
+  {
+    "id": "proj_34_20251226_022316",
+    "created_at": "2025-12-26T02:23:16.628855",
+    "status": "processing",
+    "input_video": "data/uploads/20251226_022316_emotion analysis.mp4",
+    "user_prompt": "",
+    "reference_video": null,
+    "background_music": null,
+    "platforms": [
+      "youtube",
+      "instagram",
+      "tiktok"
+    ],
+    "multiplatform": true,
+    "updated_at": "2025-12-26T02:23:17.499873",
+    "ai_analysis": {
+      "mode": "auto",
+      "detected_emotion": "balanced",
+      "platform": "youtube",
+      "operations_count": 10,
+      "user_instructions": false
+    },
+    "creative_decisions": {
+      "target_emotion": null,
+      "trim_boring": false,
+      "remove_dull": false,
+      "bad_word_filter": true,
+      "audio_enhancement": true,
+      "visual_enhancement": false
+    }
+  },
+  {
+    "id": "proj_35_20251226_023058",
+    "created_at": "2025-12-26T02:30:58.055560",
+    "status": "completed",
+    "input_video": "data/uploads/20251226_023058_emotion analysis.mp4",
+    "user_prompt": "",
+    "reference_video": null,
+    "background_music": null,
+    "platforms": [
+      "youtube",
+      "instagram",
+      "tiktok"
+    ],
+    "multiplatform": true,
+    "updated_at": "2025-12-26T02:30:59.556335",
+    "ai_analysis": {
+      "mode": "error",
+      "error": "Empty prompt - please specify operations"
+    },
+    "creative_decisions": {},
+    "output_video": "data/outputs/proj_35_20251226_023058_output.mp4",
+    "editing_plan": {
+      "analysis": {
+        "mode": "error",
+        "error": "Empty prompt - please specify operations"
+      },
+      "operations": [],
+      "creative_decisions": {},
+      "explanation": "No operations specified. Please describe what edits you want."
+    },
+    "video_metadata": {
+      "emotions": [],
+      "key_moments": [],
+      "quality_metrics": {},
+      "scenes": []
+    },
+    "completed_at": "2025-12-26T02:30:59.520229"
+  },
+  {
+    "id": "proj_36_20251226_023205",
+    "created_at": "2025-12-26T02:32:05.088401",
+    "status": "completed",
+    "input_video": "data/uploads/20251226_023205_emotion analysis.mp4",
+    "user_prompt": "",
+    "reference_video": null,
+    "background_music": null,
+    "platforms": [
+      "youtube",
+      "instagram",
+      "tiktok"
+    ],
+    "multiplatform": true,
+    "updated_at": "2025-12-26T02:32:06.308533",
+    "ai_analysis": {
+      "mode": "error",
+      "error": "Empty prompt - please specify operations"
+    },
+    "creative_decisions": {},
+    "output_video": "data/outputs/proj_36_20251226_023205_output.mp4",
+    "editing_plan": {
+      "analysis": {
+        "mode": "error",
+        "error": "Empty prompt - please specify operations"
+      },
+      "operations": [],
+      "creative_decisions": {},
+      "explanation": "No operations specified. Please describe what edits you want."
+    },
+    "video_metadata": {
+      "emotions": [],
+      "key_moments": [],
+      "quality_metrics": {},
+      "scenes": []
+    },
+    "completed_at": "2025-12-26T02:32:06.280801"
+  },
+  {
+    "id": "proj_37_20251226_023341",
+    "created_at": "2025-12-26T02:33:41.347489",
+    "status": "completed",
+    "input_video": "data/uploads/20251226_023341_emotion analysis.mp4",
+    "user_prompt": "",
+    "reference_video": null,
+    "background_music": null,
+    "platforms": [
+      "youtube",
+      "instagram",
+      "tiktok"
+    ],
+    "multiplatform": true,
+    "updated_at": "2025-12-26T02:33:43.123780",
+    "ai_analysis": {
+      "mode": "error",
+      "error": "Empty prompt - please specify operations"
+    },
+    "creative_decisions": {},
+    "output_video": "data/outputs/proj_37_20251226_023341_output.mp4",
+    "editing_plan": {
+      "analysis": {
+        "mode": "error",
+        "error": "Empty prompt - please specify operations"
+      },
+      "operations": [],
+      "creative_decisions": {},
+      "explanation": "No operations specified. Please describe what edits you want."
+    },
+    "video_metadata": {
+      "emotions": [],
+      "key_moments": [],
+      "quality_metrics": {},
+      "scenes": []
+    },
+    "completed_at": "2025-12-26T02:33:43.101642"
+  },
+  {
+    "id": "proj_38_20251226_023526",
+    "created_at": "2025-12-26T02:35:26.242506",
+    "status": "completed",
+    "input_video": "data/uploads/20251226_023526_emotion analysis.mp4",
+    "user_prompt": "",
+    "reference_video": null,
+    "background_music": null,
+    "platforms": [
+      "youtube",
+      "instagram",
+      "tiktok"
+    ],
+    "multiplatform": true,
+    "updated_at": "2025-12-26T02:44:11.631051",
+    "ai_analysis": {
+      "mode": "auto",
+      "detected_emotion": "balanced",
+      "platform": "youtube",
+      "operations_count": 10,
+      "user_instructions": false
+    },
+    "creative_decisions": {
+      "target_emotion": null,
+      "trim_boring": false,
+      "remove_dull": false,
+      "bad_word_filter": true,
+      "audio_enhancement": true,
+      "visual_enhancement": false
+    },
+    "output_video": "data/outputs/proj_38_20251226_023526_output.mp4",
+    "editing_plan": {
+      "analysis": {
+        "mode": "auto",
+        "detected_emotion": "balanced",
+        "platform": "youtube",
+        "operations_count": 10,
+        "user_instructions": false
+      },
+      "operations": [
+        {
+          "name": "remove_background_noise",
+          "priority": 1,
+          "params": {
+            "aggressiveness": 0.75
+          }
+        },
+        {
+          "name": "enhance_audio",
+          "priority": 2,
+          "params": {
+            "reduce_noise": true,
+            "normalize": true,
+            "auto_volume": true
+          }
+        },
+        {
+          "name": "detect_bad_words",
+          "priority": 3,
+          "params": {
+            "bad_words": [
+              "fuck",
+              "shit",
+              "damn",
+              "hell",
+              "ass",
+              "bitch",
+              "bastard",
+              "crap",
+              "piss",
+              "dick",
+              "cock"
+            ]
+          }
+        },
+        {
+          "name": "analyze_emotions",
+          "priority": 4,
+          "params": {
+            "track_faces": true,
+            "analyze_voice": true
+          }
+        },
+        {
+          "name": "trim_by_emotion",
+          "priority": 5,
+          "params": {
+            "target_emotion": null,
+            "keep_only_engaging": true,
+            "remove_boring": false,
+            "remove_dull": false
+          }
+        },
+        {
+          "name": "remove_silence",
+          "priority": 6,
+          "params": {
+            "silence_threshold": 0.02,
+            "min_silence": 0.5
+          }
+        },
+        {
+          "name": "remove_fillers",
+          "priority": 7,
+          "params": {}
+        },
+        {
+          "name": "brightness_adjustment",
+          "priority": 8,
+          "params": {
+            "auto": true
+          }
+        },
+        {
+          "name": "color_correction",
+          "priority": 9,
+          "params": {
+            "mood": "warm"
+          }
+        },
+        {
+          "name": "platform_optimize",
+          "priority": 10,
+          "params": {
+            "platform": "youtube"
+          }
+        }
+      ],
+      "creative_decisions": {
+        "target_emotion": null,
+        "trim_boring": false,
+        "remove_dull": false,
+        "bad_word_filter": true,
+        "audio_enhancement": true,
+        "visual_enhancement": false
+      },
+      "explanation": "Pipeline with 10 operations based on your request"
+    },
+    "video_metadata": {
+      "emotions": [
+        {
+          "time": 0.0,
+          "emotion": "balanced",
+          "brightness": 122.92739206629979,
+          "energy": 54.51284753630972
+        },
+        {
+          "time": 2.613793103448276,
+          "emotion": "balanced",
+          "brightness": 122.70781168107966,
+          "energy": 68.19319694400677
+        },
+        {
+          "time": 5.227586206896552,
+          "emotion": "balanced",
+          "brightness": 116.04883877096437,
+          "energy": 66.0130386743466
+        },
+        {
+          "time": 7.841379310344828,
+          "emotion": "balanced",
+          "brightness": 112.12789652122642,
+          "energy": 59.82255097565933
+        },
+        {
+          "time": 10.455172413793104,
+          "emotion": "balanced",
+          "brightness": 108.82559617400419,
+          "energy": 57.43768667123075
+        },
+        {
+          "time": 13.06896551724138,
+          "emotion": "balanced",
+          "brightness": 106.97658461084906,
+          "energy": 57.821136936882276
+        },
+        {
+          "time": 15.682758620689656,
+          "emotion": "balanced",
+          "brightness": 128.95787391902516,
+          "energy": 57.17929379718337
+        },
+        {
+          "time": 18.29655172413793,
+          "emotion": "energetic",
+          "brightness": 172.63699308831238,
+          "energy": 69.10956905506711
+        },
+        {
+          "time": 20.910344827586208,
+          "emotion": "calm",
+          "brightness": 65.48403760482181,
+          "energy": 70.90817911972202
+        },
+        {
+          "time": 23.524137931034485,
+          "emotion": "calm",
+          "brightness": 83.68818707416142,
+          "energy": 68.58972128789424
+        },
+        {
+          "time": 26.13793103448276,
+          "emotion": "calm",
+          "brightness": 70.48973073899371,
+          "energy": 66.1897163478033
+        },
+        {
+          "time": 28.751724137931035,
+          "emotion": "calm",
+          "brightness": 70.92188073244235,
+          "energy": 66.66782803484728
+        },
+        {
+          "time": 31.36551724137931,
+          "emotion": "calm",
+          "brightness": 81.56469880110063,
+          "energy": 66.18909784799524
+        },
+        {
+          "time": 33.97931034482759,
+          "emotion": "calm",
+          "brightness": 90.29762676886793,
+          "energy": 67.17572915711601
+        },
+        {
+          "time": 36.59310344827586,
+          "emotion": "calm",
+          "brightness": 89.63559601022013,
+          "energy": 67.97554048496076
+        },
+        {
+          "time": 39.20689655172414,
+          "emotion": "calm",
+          "brightness": 98.57118710691825,
+          "energy": 64.59868899568569
+        },
+        {
+          "time": 41.820689655172416,
+          "emotion": "calm",
+          "brightness": 90.84181489124738,
+          "energy": 64.10033004761554
+        },
+        {
+          "time": 44.43448275862069,
+          "emotion": "balanced",
+          "brightness": 120.88491712526205,
+          "energy": 60.57051383088987
+        },
+        {
+          "time": 47.04827586206897,
+          "emotion": "balanced",
+          "brightness": 122.23007403039833,
+          "energy": 54.35781526773407
+        },
+        {
+          "time": 49.66206896551724,
+          "emotion": "calm",
+          "brightness": 90.22982589753668,
+          "energy": 64.57222678839088
+        },
+        {
+          "time": 52.27586206896552,
+          "emotion": "balanced",
+          "brightness": 122.54015903432914,
+          "energy": 54.627340949924516
+        },
+        {
+          "time": 54.889655172413796,
+          "emotion": "balanced",
+          "brightness": 115.57145489386792,
+          "energy": 61.093802281549074
+        },
+        {
+          "time": 57.50344827586207,
+          "emotion": "balanced",
+          "brightness": 100.37105362290356,
+          "energy": 65.39843608783679
+        },
+        {
+          "time": 60.11724137931035,
+          "emotion": "balanced",
+          "brightness": 114.55796236242138,
+          "energy": 62.29320639413194
+        },
+        {
+          "time": 62.73103448275862,
+          "emotion": "balanced",
+          "brightness": 103.60615418632075,
+          "energy": 66.92783981445616
+        },
+        {
+          "time": 65.3448275862069,
+          "emotion": "balanced",
+          "brightness": 122.5263544942348,
+          "energy": 54.2245947341777
+        },
+        {
+          "time": 67.95862068965518,
+          "emotion": "balanced",
+          "brightness": 106.48530775026205,
+          "energy": 62.67988570719259
+        },
+        {
+          "time": 70.57241379310345,
+          "emotion": "balanced",
+          "brightness": 113.20365156577569,
+          "energy": 69.86682448945818
+        },
+        {
+          "time": 73.18620689655172,
+          "emotion": "calm",
+          "brightness": 36.01808995020964,
+          "energy": 40.80127558489875
+        },
+        {
+          "time": 75.8,
+          "emotion": "calm",
+          "brightness": 36.01808995020964,
+          "energy": 40.80127558489875
+        }
+      ],
+      "key_moments": [],
+      "quality_metrics": {},
+      "scenes": [],
+      "emotion_analysis": {
+        "target_emotion": null,
+        "detected_emotions": {
+          "silent": 53,
+          "neutral": 50,
+          "happy": 25,
+          "calm": 19,
+          "sad": 3,
+          "excited": 2
+        },
+        "segments": [
+          [
+            2.0,
+            18.0
+          ],
+          [
+            20.0,
+            23.5
+          ],
+          [
+            24.5,
+            35.0
+          ],
+          [
+            38.0,
+            50.5
+          ],
+          [
+            54.0,
+            58.0
+          ],
+          [
+            62.0,
+            73.0
+          ]
+        ],
+        "savings_percent": 24.162490108150877,
+        "timestamps": [
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          3.5,
+          4.0,
+          4.5,
+          5.0,
+          5.5,
+          6.0,
+          6.5,
+          7.0,
+          7.5,
+          8.0,
+          8.5,
+          9.0,
+          9.5,
+          10.0,
+          10.5,
+          11.0,
+          11.5,
+          12.0,
+          12.5,
+          13.0,
+          13.5,
+          14.0,
+          14.5,
+          15.0,
+          15.5,
+          16.0,
+          16.5,
+          17.0,
+          17.5,
+          18.0,
+          18.5,
+          19.0,
+          19.5,
+          20.0,
+          20.5,
+          21.0,
+          21.5,
+          22.0,
+          22.5,
+          23.0,
+          23.5,
+          24.0,
+          24.5,
+          25.0,
+          25.5,
+          26.0,
+          26.5,
+          27.0,
+          27.5,
+          28.0,
+          28.5,
+          29.0,
+          29.5,
+          30.0,
+          30.5,
+          31.0,
+          31.5,
+          32.0,
+          32.5,
+          33.0,
+          33.5,
+          34.0,
+          34.5,
+          35.0,
+          35.5,
+          36.0,
+          36.5,
+          37.0,
+          37.5,
+          38.0,
+          38.5,
+          39.0,
+          39.5,
+          40.0,
+          40.5,
+          41.0,
+          41.5,
+          42.0,
+          42.5,
+          43.0,
+          43.5,
+          44.0,
+          44.5,
+          45.0,
+          45.5,
+          46.0,
+          46.5,
+          47.0,
+          47.5,
+          48.0,
+          48.5,
+          49.0,
+          49.5,
+          50.0,
+          50.5,
+          51.0,
+          51.5,
+          52.0,
+          52.5,
+          53.0,
+          53.5,
+          54.0,
+          54.5,
+          55.0,
+          55.5,
+          56.0,
+          56.5,
+          57.0,
+          57.5,
+          58.0,
+          58.5,
+          59.0,
+          59.5,
+          60.0,
+          60.5,
+          61.0,
+          61.5,
+          62.0,
+          62.5,
+          63.0,
+          63.5,
+          64.0,
+          64.5,
+          65.0,
+          65.5,
+          66.0,
+          66.5,
+          67.0,
+          67.5,
+          68.0,
+          68.5,
+          69.0,
+          69.5,
+          70.0,
+          70.5,
+          71.0,
+          71.5,
+          72.0,
+          72.5,
+          73.0,
+          73.5,
+          74.0,
+          74.5,
+          75.0,
+          75.5
+        ],
+        "emotions_timeline": [
+          "silent",
+          "silent",
+          "neutral",
+          "silent",
+          "neutral",
+          "happy",
+          "neutral",
+          "calm",
+          "happy",
+          "silent",
+          "happy",
+          "happy",
+          "calm",
+          "neutral",
+          "happy",
+          "calm",
+          "calm",
+          "calm",
+          "happy",
+          "silent",
+          "neutral",
+          "neutral",
+          "happy",
+          "happy",
+          "happy",
+          "neutral",
+          "silent",
+          "calm",
+          "silent",
+          "sad",
+          "silent",
+          "happy",
+          "happy",
+          "neutral",
+          "silent",
+          "silent",
+          "silent",
+          "silent",
+          "silent",
+          "silent",
+          "neutral",
+          "happy",
+          "silent",
+          "neutral",
+          "excited",
+          "neutral",
+          "neutral",
+          "silent",
+          "silent",
+          "neutral",
+          "neutral",
+          "happy",
+          "silent",
+          "neutral",
+          "calm",
+          "silent",
+          "neutral",
+          "neutral",
+          "silent",
+          "neutral",
+          "neutral",
+          "silent",
+          "happy",
+          "happy",
+          "neutral",
+          "neutral",
+          "neutral",
+          "sad",
+          "happy",
+          "neutral",
+          "silent",
+          "silent",
+          "neutral",
+          "silent",
+          "happy",
+          "silent",
+          "silent",
+          "neutral",
+          "calm",
+          "excited",
+          "silent",
+          "happy",
+          "neutral",
+          "neutral",
+          "neutral",
+          "silent",
+          "sad",
+          "calm",
+          "calm",
+          "silent",
+          "silent",
+          "happy",
+          "silent",
+          "neutral",
+          "neutral",
+          "neutral",
+          "calm",
+          "happy",
+          "silent",
+          "neutral",
+          "neutral",
+          "silent",
+          "calm",
+          "silent",
+          "happy",
+          "silent",
+          "calm",
+          "silent",
+          "calm",
+          "happy",
+          "neutral",
+          "neutral",
+          "silent",
+          "neutral",
+          "neutral",
+          "neutral",
+          "silent",
+          "silent",
+          "neutral",
+          "silent",
+          "silent",
+          "silent",
+          "neutral",
+          "silent",
+          "neutral",
+          "calm",
+          "neutral",
+          "neutral",
+          "silent",
+          "neutral",
+          "happy",
+          "neutral",
+          "silent",
+          "calm",
+          "calm",
+          "silent",
+          "neutral",
+          "silent",
+          "calm",
+          "happy",
+          "happy",
+          "neutral",
+          "neutral",
+          "neutral",
+          "calm",
+          "neutral",
+          "silent",
+          "silent",
+          "silent",
+          "silent",
+          "silent",
+          "silent"
+        ]
+      }
+    },
+    "completed_at": "2025-12-26T02:44:11.555104"
+  },
+  {
+    "id": "proj_39_20251226_025209",
+    "created_at": "2025-12-26T02:52:09.962727",
+    "status": "uploaded",
+    "input_video": "data/uploads/20251226_025209_final test.mp4",
+    "user_prompt": "remove bad word , remove silent part ,",
+    "reference_video": null,
+    "background_music": null,
+    "platforms": [
+      "youtube",
+      "instagram",
+      "tiktok"
+    ],
+    "multiplatform": true
+  },
+  {
+    "id": "proj_40_20251226_025210",
+    "created_at": "2025-12-26T02:52:10.541714",
+    "status": "uploaded",
+    "input_video": "data/uploads/20251226_025210_final test.mp4",
+    "user_prompt": "remove bad word , remove silent part ,",
+    "reference_video": null,
+    "background_music": null,
+    "platforms": [
+      "youtube",
+      "instagram",
+      "tiktok"
+    ],
+    "multiplatform": true
+  },
+  {
+    "id": "proj_41_20251226_025210",
+    "created_at": "2025-12-26T02:52:10.717206",
+    "status": "uploaded",
+    "input_video": "data/uploads/20251226_025210_final test.mp4",
+    "user_prompt": "remove bad word , remove silent part ,",
+    "reference_video": null,
+    "background_music": null,
+    "platforms": [
+      "youtube",
+      "instagram",
+      "tiktok"
+    ],
+    "multiplatform": true
+  },
+  {
+    "id": "proj_42_20251226_025443",
+    "created_at": "2025-12-26T02:54:43.047976",
+    "status": "completed",
+    "input_video": "data/uploads/20251226_025442_final test.mp4",
+    "user_prompt": "remove bad word and remove silent part",
+    "reference_video": null,
+    "background_music": null,
+    "platforms": [
+      "youtube",
+      "instagram",
+      "tiktok"
+    ],
+    "multiplatform": true,
+    "updated_at": "2025-12-26T02:55:28.331808",
+    "ai_analysis": {
+      "mode": "custom",
+      "detected_emotion": "none",
+      "platform": "youtube",
+      "operations_count": 1,
+      "user_instructions": true
+    },
+    "creative_decisions": {
+      "target_emotion": null,
+      "platform": "youtube",
+      "operations_requested": [
+        "detect_bad_words"
+      ]
+    },
+    "output_video": "data/outputs/proj_42_20251226_025443_output.mp4",
+    "editing_plan": {
+      "analysis": {
+        "mode": "custom",
+        "detected_emotion": "none",
+        "platform": "youtube",
+        "operations_count": 1,
+        "user_instructions": true
+      },
+      "operations": [
+        {
+          "name": "detect_bad_words",
+          "priority": 1,
+          "params": {
+            "bad_words": [
+              "fuck",
+              "shit",
+              "damn",
+              "hell",
+              "ass",
+              "bitch",
+              "bastard",
+              "crap",
+              "piss",
+              "dick",
+              "cock"
+            ]
+          }
+        }
+      ],
+      "creative_decisions": {
+        "target_emotion": null,
+        "platform": "youtube",
+        "operations_requested": [
+          "detect_bad_words"
+        ]
+      },
+      "explanation": "Executing 1 operations based on your request: detect bad words"
+    },
+    "video_metadata": {
+      "emotions": [],
+      "key_moments": [],
+      "quality_metrics": {},
+      "scenes": []
+    },
+    "completed_at": "2025-12-26T02:55:28.284491"
+  },
+  {
+    "id": "proj_43_20251226_030046",
+    "created_at": "2025-12-26T03:00:46.251530",
+    "status": "completed",
+    "input_video": "data/uploads/20251226_030046_final test.mp4",
+    "user_prompt": "remove bad word , remove silent part",
+    "reference_video": null,
+    "background_music": null,
+    "platforms": [
+      "youtube",
+      "instagram",
+      "tiktok"
+    ],
+    "multiplatform": true,
+    "updated_at": "2025-12-26T03:01:47.645519",
+    "ai_analysis": {
+      "mode": "custom",
+      "detected_emotion": "none",
+      "platform": "youtube",
+      "operations_count": 1,
+      "user_instructions": true
+    },
+    "creative_decisions": {
+      "target_emotion": null,
+      "platform": "youtube",
+      "operations_requested": [
+        "detect_bad_words"
+      ]
+    },
+    "operations_detected": 1,
+    "output_video": "data/outputs/proj_43_20251226_030046_output.mp4",
+    "editing_plan": {
+      "analysis": {
+        "mode": "custom",
+        "detected_emotion": "none",
+        "platform": "youtube",
+        "operations_count": 1,
+        "user_instructions": true
+      },
+      "operations": [
+        {
+          "name": "detect_bad_words",
+          "priority": 1,
+          "params": {
+            "bad_words": [
+              "fuck",
+              "shit",
+              "damn",
+              "hell",
+              "ass",
+              "bitch",
+              "bastard",
+              "crap",
+              "piss",
+              "dick",
+              "cock"
+            ]
+          }
+        }
+      ],
+      "creative_decisions": {
+        "target_emotion": null,
+        "platform": "youtube",
+        "operations_requested": [
+          "detect_bad_words"
+        ]
+      },
+      "explanation": "Executing 1 operations based on your request: detect bad words"
+    },
+    "video_metadata": {
+      "emotions": [],
+      "key_moments": [],
+      "quality_metrics": {},
+      "scenes": []
+    },
+    "completed_at": "2025-12-26T03:01:47.595988",
+    "output_file_size_mb": 3.571613311767578
   }
 ]

@@ -20,6 +20,9 @@ from core.operations.color_correction import color_correction
 from core.operations.platform_optimizer import platform_optimize
 from core.operations.quality_evaluator import evaluate_quality
 
+# Bad word detection
+from core.operations.bad_word_detector import detect_bad_words
+
 # Audio operations
 from core.operations.audio_enhance import (
     enhance_audio,
@@ -39,6 +42,7 @@ from core.operations.additional_operations import (
     add_filters,
     smart_cut
 )
+
 
 @dataclass
 class Operation:
@@ -64,18 +68,21 @@ class EnhancedVideoPipeline:
             "remove_background_noise": self._op_remove_background_noise,
             "isolate_voice": self._op_isolate_voice,
             
-            # NEW: Smart emotion trimming
+            # Smart emotion operations
             "trim_by_emotion": self._op_trim_by_emotion,
             "analyze_emotions": self._op_analyze_emotions,
             "identify_key_moments": self._op_identify_key_moments,
             
-            # Visual
+            # Visual operations
             "color_correction": self._op_color_correction,
             "brightness_adjustment": self._op_brightness_adjustment,
             "platform_optimize": self._op_platform_optimize,
             "evaluate_quality": self._op_evaluate_quality,
             
-            # Other
+            # Content moderation
+            "detect_bad_words": self._op_detect_bad_words,
+            
+            # Other operations
             "smart_cut": self._op_smart_cut,
             "stabilization": self._op_stabilization,
             "add_filters": self._op_add_filters,
@@ -246,6 +253,10 @@ class EnhancedVideoPipeline:
     
     def _op_evaluate_quality(self, input_path: str, output_path: str, **kwargs):
         evaluate_quality(input_path, output_path)
+    
+    def _op_detect_bad_words(self, input_path: str, output_path: str, **kwargs):
+        bad_words = kwargs.get("bad_words", [])
+        detect_bad_words(input_path, output_path, bad_words)
     
     def _op_stabilization(self, input_path: str, output_path: str, **kwargs):
         stabilization(input_path, output_path)
