@@ -1,40 +1,36 @@
-# Backend
-fastapi==0.109.0
-uvicorn[standard]==0.27.0
-python-multipart==0.0.6
-pydantic==2.5.3
+# requirements.txt - COMPLETE DEPENDENCIES
 
-# AI - HuggingFace
-requests==2.31.0
-huggingface-hub==0.20.0
+# Core Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+python-dotenv==1.0.0
+pydantic==2.5.0
+
+# Frontend
+streamlit==1.28.0
 
 # Video Processing
 moviepy==1.0.3
-openai-whisper
+opencv-python==4.8.1.78
+Pillow==10.1.0
+
+# Audio Processing
 librosa==0.10.1
 soundfile==0.12.1
 noisereduce==3.0.0
+scipy==1.11.4
+pydub==0.25.1
 
-# NumPy - Fixed for Python 3.12
-numpy>=1.26.0
-
-# OpenCV - Compatible version
-opencv-python==4.10.0.84
-
-# Pillow
-Pillow==10.2.0
+# AI/ML
+whisper==1.1.10
+openai-whisper==20231117
+torch==2.1.1
+torchaudio==2.1.1
+numpy==1.24.3
 
 # Utilities
-python-dotenv==1.0.0
+requests==2.31.0
 
-# Frontend
-streamlit==1.31.0
-
-# Additional dependencies that might be needed
-decorator==4.4.2
-imageio==2.31.1
-imageio-ffmpeg==0.4.9
-proglog==0.1.10
-tqdm==4.66.1
-opencv-python==4.10.0.84  # For emotion/face detection
-scikit-learn  # For advanced analysis (optional)
+# Additional Tools
+ffmpeg-python==0.2.0
