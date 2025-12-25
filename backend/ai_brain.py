@@ -1,180 +1,184 @@
-# backend/ai_brain.py - COMPLETELY FIXED VERSION
+# backend/ai_brain.py - COMPLETE AI BRAIN WITH ALL OPERATIONS
 
 import os
 import re
 from typing import Dict, List
 
 class AdvancedAIBrain:
-    """Fixed AI Brain - Respects prompts correctly"""
+    """
+    Complete AI Brain - Handles ALL operations automatically
+    """
     
     def __init__(self):
-        # Emotion keywords for filtering
+        # ALL supported operations
+        self.all_operations = [
+            "remove_background_noise",
+            "enhance_audio",
+            "isolate_voice",
+            "analyze_emotions",
+            "trim_by_emotion",
+            "remove_silence",
+            "remove_fillers",
+            "detect_bad_words",  # NEW
+            "adjust_volume",  # NEW
+            "adjust_pitch",  # NEW
+            "brightness_adjustment",
+            "color_correction",
+            "add_subtitles",
+            "add_music",
+            "platform_optimize"
+        ]
+        
+        # Emotion keywords
         self.emotion_keywords = {
-            "happy": ["happy", "joy", "joyful", "cheerful", "positive", "smile", "laugh"],
-            "sad": ["sad", "sadness", "depressing", "melancholic", "crying"],
-            "excited": ["excited", "exciting", "energetic", "thrilling", "enthusiastic"],
-            "calm": ["calm", "peaceful", "relaxing", "serene", "tranquil"],
-            "angry": ["angry", "anger", "furious", "rage", "mad"],
+            "happy": ["happy", "joy", "joyful", "cheerful", "positive"],
+            "excited": ["excited", "energetic", "viral", "fast"],
+            "calm": ["calm", "peaceful", "relaxing", "slow"],
+            "sad": ["sad", "emotional", "touching"],
+            "dramatic": ["dramatic", "intense", "epic"]
         }
         
-        # Operation detection patterns
-        self.patterns = {
-            # Audio operations
-            "remove_noise": ["noise", "background noise", "clean audio", "denoise"],
-            "enhance_audio": ["enhance audio", "improve audio", "better sound", "audio quality"],
-            "isolate_voice": ["voice only", "isolate voice", "extract voice"],
-            
-            # Emotion operations
-            "emotion_filter": ["keep happy", "keep sad", "keep excited", "keep calm", "keep angry", 
-                              "only happy", "only sad", "happy moments", "excited parts"],
-            "trim_boring": ["remove boring", "trim boring", "cut boring", "keep engaging", "remove dull"],
-            
-            # Content operations
-            "remove_silence": ["silence", "remove silence", "cut silence", "skip pauses"],
-            "remove_fillers": ["filler", "um", "uh", "remove filler"],
-            
-            # Visual operations
-            "add_subtitles": ["subtitle", "caption", "add text", "srt"],
-            "add_music": ["music", "background music", "add music", "soundtrack"],
-            "color_correction": ["color", "color grade", "cinematic"],
-        }
+        # Bad words list (profanity filter)
+        self.bad_words = [
+            "fuck", "shit", "damn", "hell", "ass", "bitch",
+            "bastard", "crap", "piss", "dick", "cock"
+        ]
     
     async def analyze_request(self, user_prompt: str, video_metadata: dict) -> dict:
-        """Main analysis - FIXED to respect user prompts"""
+        """
+        Main AI Brain - Analyzes and creates operation plan based on prompt
+        """
         prompt = (user_prompt or "").strip().lower()
         
         print("\n" + "="*70)
-        print("🎯 AI BRAIN ANALYSIS")
+        print("🎯 AI BRAIN - ANALYZING USER REQUEST")
         print("="*70)
         print(f"User Prompt: '{user_prompt}'")
-        print(f"Prompt Length: {len(prompt)}")
+        print(f"Prompt length: {len(prompt)} chars")
         
-        # CHECK: Empty prompt = AUTO MODE
-        if len(prompt) < 3:
-            print("🤖 MODE: FULL AUTO (Empty prompt)")
-            return self._full_auto_mode()
+        # Check if user gave specific instructions
+        has_instructions = self._has_specific_instructions(prompt)
         
-        # USER GAVE PROMPT - Analyze it
-        print("🎯 MODE: CUSTOM (User gave instructions)")
-        return self._analyze_custom_prompt(prompt)
-    
-    def _analyze_custom_prompt(self, prompt: str) -> dict:
-        """Analyze custom prompt and create operations"""
+        # Detect target emotion
+        target_emotion = self._detect_emotion(prompt)
+        
+        # Detect platform
+        platform = self._detect_platform(prompt)
+        
+        # Check what user wants
+        user_wants = self._analyze_user_wants(prompt)
+        
+        # BUILD OPERATION PIPELINE BASED ON USER REQUEST
         operations = []
         priority = 1
-        detected = set()
         
-        print("\n🔍 Analyzing prompt for operations...")
+        print("\n📋 Building Operation Pipeline...")
+        print(f"   Mode: {'CUSTOM (user instructions)' if has_instructions else 'AUTO (full AI)'}")
         
-        # STEP 1: Detect target emotion (if any)
-        target_emotion = None
-        for emotion, keywords in self.emotion_keywords.items():
-            for keyword in keywords:
-                if keyword in prompt:
-                    target_emotion = emotion
-                    print(f"✅ Target Emotion: {emotion}")
-                    detected.add("emotion_filter")
-                    break
-            if target_emotion:
-                break
+        # ===== ALWAYS: Audio Enhancement =====
+        print("\n🎧 AUDIO PROCESSING:")
         
-        # STEP 2: Detect all requested operations
-        for op_name, keywords in self.patterns.items():
-            for keyword in keywords:
-                if keyword in prompt:
-                    detected.add(op_name)
-                    print(f"✅ Detected: {op_name} ('{keyword}')")
-                    break
-        
-        print(f"\n📋 Total operations detected: {len(detected)}")
-        
-        # BUILD OPERATION LIST IN CORRECT ORDER
-        
-        # PHASE 1: AUDIO OPERATIONS (if requested)
-        if "remove_noise" in detected:
+        if user_wants.get('remove_noise') or not has_instructions:
             operations.append({
                 "name": "remove_background_noise",
                 "priority": priority,
                 "params": {"aggressiveness": 0.75}
             })
             priority += 1
-            print("   → Will remove background noise")
+            print("   ✓ Remove background noise")
         
-        if "isolate_voice" in detected:
-            operations.append({
-                "name": "isolate_voice",
-                "priority": priority,
-                "params": {}
-            })
-            priority += 1
-            print("   → Will isolate voice")
-        
-        if "enhance_audio" in detected:
+        if user_wants.get('enhance_audio') or not has_instructions:
             operations.append({
                 "name": "enhance_audio",
                 "priority": priority,
                 "params": {"reduce_noise": True, "normalize": True, "auto_volume": True}
             })
             priority += 1
-            print("   → Will enhance audio")
+            print("   ✓ Enhance audio quality")
         
-        # PHASE 2: EMOTION-BASED TRIMMING
-        if target_emotion or "emotion_filter" in detected or "trim_boring" in detected:
-            # Always analyze emotions first
+        # Bad word detection (always on)
+        operations.append({
+            "name": "detect_bad_words",
+            "priority": priority,
+            "params": {"bad_words": self.bad_words}
+        })
+        priority += 1
+        print("   ✓ Bad word detection")
+        
+        # ===== EMOTION ANALYSIS (if requested OR auto mode) =====
+        if target_emotion or user_wants.get('emotion_based') or not has_instructions:
+            print("\n💖 EMOTION ANALYSIS:")
+            
             operations.append({
                 "name": "analyze_emotions",
                 "priority": priority,
                 "params": {"track_faces": True, "analyze_voice": True}
             })
             priority += 1
-            print("   → Will analyze emotions")
+            print("   ✓ Analyze emotions")
             
-            # Then trim based on emotion
             operations.append({
                 "name": "trim_by_emotion",
                 "priority": priority,
                 "params": {
                     "target_emotion": target_emotion,
-                    "keep_only_engaging": target_emotion is None
+                    "keep_only_engaging": True,
+                    "remove_boring": user_wants.get('remove_boring', not has_instructions),
+                    "remove_dull": user_wants.get('remove_dull', not has_instructions)
                 }
             })
             priority += 1
             if target_emotion:
-                print(f"   → Will keep only '{target_emotion}' moments")
+                print(f"   ✓ Keep '{target_emotion}' moments only")
             else:
-                print("   → Will remove boring parts automatically")
+                print("   ✓ Remove boring/dull parts")
         
-        # PHASE 3: CONTENT TRIMMING
-        if "remove_silence" in detected:
+        # ===== CONTENT TRIMMING =====
+        if user_wants.get('remove_silence') or not has_instructions:
+            print("\n✂️ CONTENT TRIMMING:")
+            
             operations.append({
                 "name": "remove_silence",
                 "priority": priority,
                 "params": {"silence_threshold": 0.02, "min_silence": 0.5}
             })
             priority += 1
-            print("   → Will remove silence")
+            print("   ✓ Remove silence")
         
-        if "remove_fillers" in detected:
+        if user_wants.get('remove_fillers') or not has_instructions:
             operations.append({
                 "name": "remove_fillers",
                 "priority": priority,
                 "params": {}
             })
             priority += 1
-            print("   → Will remove filler words")
+            print("   ✓ Remove filler words")
         
-        # PHASE 4: VISUAL ENHANCEMENTS
-        if "color_correction" in detected:
+        # ===== VISUAL ENHANCEMENTS =====
+        if user_wants.get('adjust_brightness') or not has_instructions:
+            print("\n🎨 VISUAL ENHANCEMENT:")
+            
+            operations.append({
+                "name": "brightness_adjustment",
+                "priority": priority,
+                "params": {"auto": True}
+            })
+            priority += 1
+            print("   ✓ Adjust brightness")
+        
+        if user_wants.get('color_correction') or not has_instructions:
             operations.append({
                 "name": "color_correction",
                 "priority": priority,
-                "params": {"mood": "warm"}
+                "params": {"mood": self._get_color_mood(target_emotion)}
             })
             priority += 1
-            print("   → Will apply color correction")
+            print("   ✓ Color correction")
         
-        # PHASE 5: SUBTITLES (Always add if requested)
-        if "add_subtitles" in detected:
+        # ===== SUBTITLES (if requested) =====
+        if user_wants.get('add_subtitles'):
+            print("\n💬 SUBTITLES:")
+            
             style = "mrbeast" if "viral" in prompt or "mrbeast" in prompt else "standard"
             operations.append({
                 "name": "add_subtitles",
@@ -182,11 +186,13 @@ class AdvancedAIBrain:
                 "params": {"style": style, "sync_with_audio": True}
             })
             priority += 1
-            print(f"   → Will add subtitles (style: {style})")
+            print(f"   ✓ Add subtitles ({style})")
         
-        # PHASE 6: BACKGROUND MUSIC (Critical fix)
-        if "add_music" in detected:
-            mood = self._detect_music_mood(prompt)
+        # ===== MUSIC (if requested) =====
+        if user_wants.get('add_music'):
+            print("\n🎵 BACKGROUND MUSIC:")
+            
+            mood = self._get_music_mood(target_emotion or "upbeat")
             operations.append({
                 "name": "add_music",
                 "priority": priority,
@@ -198,102 +204,73 @@ class AdvancedAIBrain:
                 }
             })
             priority += 1
-            print(f"   → Will add background music ({mood} mood)")
+            print(f"   ✓ Add music ({mood})")
         
-        # PHASE 7: PLATFORM OPTIMIZATION (always at end)
-        platform = self._detect_platform(prompt)
+        # ===== PLATFORM OPTIMIZATION (always) =====
+        print("\n📱 PLATFORM OPTIMIZATION:")
         operations.append({
             "name": "platform_optimize",
             "priority": priority,
             "params": {"platform": platform}
         })
-        print(f"   → Platform: {platform}")
+        priority += 1
+        print(f"   ✓ Optimize for {platform}")
         
-        print(f"\n✅ Final plan: {len(operations)} operations")
+        print(f"\n✅ PIPELINE READY: {len(operations)} operations")
         print("="*70 + "\n")
         
         return {
             "analysis": {
-                "mode": "custom",
-                "detected_emotion": target_emotion or "any",
-                "operations_count": len(operations)
+                "mode": "custom" if has_instructions else "auto",
+                "detected_emotion": target_emotion or "balanced",
+                "platform": platform,
+                "operations_count": len(operations),
+                "user_instructions": has_instructions
             },
             "operations": operations,
             "creative_decisions": {
                 "target_emotion": target_emotion,
-                "trim_boring": "trim_boring" in detected or target_emotion is not None
+                "trim_boring": user_wants.get('remove_boring', not has_instructions),
+                "remove_dull": user_wants.get('remove_dull', not has_instructions),
+                "bad_word_filter": True,
+                "audio_enhancement": True,
+                "visual_enhancement": user_wants.get('adjust_brightness', not has_instructions)
             },
-            "explanation": f"Applying {len(operations)} operations as requested"
+            "explanation": f"Pipeline with {len(operations)} operations based on your request"
         }
     
-    def _full_auto_mode(self) -> dict:
-        """Full AUTO mode - Apply ALL enhancements"""
-        print("\n🤖 FULL AUTO MODE - Applying all AI enhancements")
-        
-        operations = []
-        priority = 1
-        
-        # Audio cleanup
-        operations.append({"name": "remove_background_noise", "priority": priority, 
-                          "params": {"aggressiveness": 0.75}})
-        priority += 1
-        
-        operations.append({"name": "enhance_audio", "priority": priority,
-                          "params": {"reduce_noise": True, "normalize": True, "auto_volume": True}})
-        priority += 1
-        
-        # Emotion analysis + smart trimming
-        operations.append({"name": "analyze_emotions", "priority": priority,
-                          "params": {"track_faces": True, "analyze_voice": True}})
-        priority += 1
-        
-        operations.append({"name": "trim_by_emotion", "priority": priority,
-                          "params": {"target_emotion": None, "keep_only_engaging": True}})
-        priority += 1
-        
-        # Remove silence
-        operations.append({"name": "remove_silence", "priority": priority,
-                          "params": {"silence_threshold": 0.02, "min_silence": 0.5}})
-        priority += 1
-        
-        # Visual
-        operations.append({"name": "color_correction", "priority": priority,
-                          "params": {"mood": "warm"}})
-        priority += 1
-        
-        # Subtitles
-        operations.append({"name": "add_subtitles", "priority": priority,
-                          "params": {"style": "standard", "sync_with_audio": True}})
-        priority += 1
-        
-        # Music
-        operations.append({"name": "add_music", "priority": priority,
-                          "params": {"mood": "upbeat", "volume": 0.15, "auto_select": True}})
-        priority += 1
-        
-        # Platform
-        operations.append({"name": "platform_optimize", "priority": priority,
-                          "params": {"platform": "youtube"}})
-        
-        print(f"✅ AUTO MODE: {len(operations)} operations planned")
-        print("="*70 + "\n")
-        
-        return {
-            "analysis": {"mode": "auto", "operations_count": len(operations)},
-            "operations": operations,
-            "creative_decisions": {"auto_mode": True},
-            "explanation": f"AUTO MODE: Applying {len(operations)} AI operations"
-        }
+    def _has_specific_instructions(self, prompt: str) -> bool:
+        """Check if user gave specific instructions"""
+        keywords = [
+            'add', 'remove', 'subtitle', 'music', 'trim', 'cut',
+            'enhance', 'adjust', 'brightness', 'color', 'filter',
+            'silence', 'filler', 'noise', 'emotion', 'happy', 'sad'
+        ]
+        return any(keyword in prompt for keyword in keywords)
     
-    def _detect_music_mood(self, prompt: str) -> str:
-        """Detect music mood from prompt"""
-        if any(w in prompt for w in ["upbeat", "energetic", "exciting", "happy"]):
-            return "upbeat"
-        elif any(w in prompt for w in ["calm", "relaxing", "peaceful"]):
-            return "calm"
-        elif any(w in prompt for w in ["dramatic", "intense", "epic"]):
-            return "dramatic"
-        return "upbeat"
+    def _analyze_user_wants(self, prompt: str) -> dict:
+        """Analyze what user specifically wants"""
+        wants = {
+            'remove_noise': any(w in prompt for w in ['noise', 'clean audio', 'remove background']),
+            'enhance_audio': any(w in prompt for w in ['enhance audio', 'better audio', 'improve audio']),
+            'remove_silence': any(w in prompt for w in ['silence', 'remove silence', 'cut silence']),
+            'remove_fillers': any(w in prompt for w in ['filler', 'um', 'uh', 'remove filler']),
+            'remove_boring': any(w in prompt for w in ['boring', 'dull', 'trim boring', 'engaging']),
+            'remove_dull': any(w in prompt for w in ['dull', 'useless', 'trim dull']),
+            'add_subtitles': any(w in prompt for w in ['subtitle', 'caption', 'text', 'srt']),
+            'add_music': any(w in prompt for w in ['music', 'background music', 'soundtrack']),
+            'adjust_brightness': any(w in prompt for w in ['brightness', 'lighting', 'exposure']),
+            'color_correction': any(w in prompt for w in ['color', 'grade', 'cinematic']),
+            'emotion_based': any(w in prompt for w in ['happy', 'sad', 'excited', 'calm', 'emotion', 'reel'])
+        }
+        return wants
+    
+    def _detect_emotion(self, prompt: str) -> str:
+        """Detect target emotion from prompt"""
+        for emotion, keywords in self.emotion_keywords.items():
+            if any(keyword in prompt for keyword in keywords):
+                return emotion
+        return None
     
     def _detect_platform(self, prompt: str) -> str:
         """Detect target platform"""
@@ -303,4 +280,26 @@ class AdvancedAIBrain:
             return "instagram"
         elif "tiktok" in prompt:
             return "tiktok"
-        return "youtube"
+        return "youtube"  # Default
+    
+    def _get_music_mood(self, emotion: str) -> str:
+        """Get music mood based on emotion"""
+        mood_map = {
+            "happy": "upbeat",
+            "excited": "upbeat",
+            "calm": "calm",
+            "sad": "emotional",
+            "dramatic": "dramatic"
+        }
+        return mood_map.get(emotion, "upbeat")
+    
+    def _get_color_mood(self, emotion: str) -> str:
+        """Get color grading mood"""
+        color_map = {
+            "happy": "warm",
+            "excited": "vibrant",
+            "calm": "cool",
+            "sad": "cool",
+            "dramatic": "warm"
+        }
+        return color_map.get(emotion, "warm")

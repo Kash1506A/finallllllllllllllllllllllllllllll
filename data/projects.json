@@ -12689,5 +12689,1755 @@
       }
     },
     "completed_at": "2025-12-25T22:58:28.368252"
+  },
+  {
+    "id": "proj_27_20251225_232300",
+    "created_at": "2025-12-25T23:23:00.280714",
+    "status": "completed",
+    "input_video": "data/uploads/20251225_232300_truing vedio.mp4",
+    "user_prompt": "",
+    "reference_video": null,
+    "background_music": null,
+    "platforms": [
+      "youtube",
+      "instagram",
+      "tiktok"
+    ],
+    "multiplatform": true,
+    "updated_at": "2025-12-25T23:24:51.934925",
+    "ai_analysis": {
+      "mode": "auto",
+      "operations_count": 9
+    },
+    "creative_decisions": {
+      "auto_mode": true
+    },
+    "output_video": "data/outputs/proj_27_20251225_232300_output.mp4",
+    "editing_plan": {
+      "analysis": {
+        "mode": "auto",
+        "operations_count": 9
+      },
+      "operations": [
+        {
+          "name": "remove_background_noise",
+          "priority": 1,
+          "params": {
+            "aggressiveness": 0.75
+          }
+        },
+        {
+          "name": "enhance_audio",
+          "priority": 2,
+          "params": {
+            "reduce_noise": true,
+            "normalize": true,
+            "auto_volume": true
+          }
+        },
+        {
+          "name": "analyze_emotions",
+          "priority": 3,
+          "params": {
+            "track_faces": true,
+            "analyze_voice": true
+          }
+        },
+        {
+          "name": "trim_by_emotion",
+          "priority": 4,
+          "params": {
+            "target_emotion": null,
+            "keep_only_engaging": true
+          }
+        },
+        {
+          "name": "remove_silence",
+          "priority": 5,
+          "params": {
+            "silence_threshold": 0.02,
+            "min_silence": 0.5
+          }
+        },
+        {
+          "name": "color_correction",
+          "priority": 6,
+          "params": {
+            "mood": "warm"
+          }
+        },
+        {
+          "name": "add_subtitles",
+          "priority": 7,
+          "params": {
+            "style": "standard",
+            "sync_with_audio": true
+          }
+        },
+        {
+          "name": "add_music",
+          "priority": 8,
+          "params": {
+            "mood": "upbeat",
+            "volume": 0.15,
+            "auto_select": true
+          }
+        },
+        {
+          "name": "platform_optimize",
+          "priority": 9,
+          "params": {
+            "platform": "youtube"
+          }
+        }
+      ],
+      "creative_decisions": {
+        "auto_mode": true
+      },
+      "explanation": "AUTO MODE: Applying 9 AI operations"
+    },
+    "video_metadata": {
+      "emotions": [
+        {
+          "time": 0.0,
+          "emotion": "energetic",
+          "brightness": 169.5111947016461,
+          "energy": 54.95461483573498
+        },
+        {
+          "time": 1.0905882352941176,
+          "emotion": "energetic",
+          "brightness": 189.2668258101852,
+          "energy": 52.53274249629932
+        },
+        {
+          "time": 2.1811764705882353,
+          "emotion": "energetic",
+          "brightness": 180.9376221707819,
+          "energy": 54.94694054470172
+        },
+        {
+          "time": 3.2717647058823527,
+          "emotion": "energetic",
+          "brightness": 184.66383342978395,
+          "energy": 54.0850641633319
+        },
+        {
+          "time": 4.3623529411764705,
+          "emotion": "energetic",
+          "brightness": 185.96061921296297,
+          "energy": 54.38399818305282
+        },
+        {
+          "time": 5.452941176470588,
+          "emotion": "energetic",
+          "brightness": 180.3503922325103,
+          "energy": 55.1684875325449
+        },
+        {
+          "time": 6.543529411764705,
+          "emotion": "energetic",
+          "brightness": 184.96553256815844,
+          "energy": 55.01731665505726
+        },
+        {
+          "time": 7.634117647058823,
+          "emotion": "energetic",
+          "brightness": 182.7252226401749,
+          "energy": 56.58553315790084
+        },
+        {
+          "time": 8.724705882352941,
+          "emotion": "energetic",
+          "brightness": 184.10115097736625,
+          "energy": 56.54778662360854
+        },
+        {
+          "time": 9.815294117647058,
+          "emotion": "energetic",
+          "brightness": 184.93560313786008,
+          "energy": 56.00524899648555
+        },
+        {
+          "time": 10.905882352941177,
+          "emotion": "energetic",
+          "brightness": 186.82375417952676,
+          "energy": 55.18657902668906
+        },
+        {
+          "time": 11.996470588235294,
+          "emotion": "energetic",
+          "brightness": 185.62363602752058,
+          "energy": 54.392338701329884
+        },
+        {
+          "time": 13.08705882352941,
+          "emotion": "energetic",
+          "brightness": 178.23335181970165,
+          "energy": 57.7478571467074
+        },
+        {
+          "time": 14.17764705882353,
+          "emotion": "energetic",
+          "brightness": 170.02119823816872,
+          "energy": 59.490754685365935
+        },
+        {
+          "time": 15.268235294117646,
+          "emotion": "energetic",
+          "brightness": 182.16622138631686,
+          "energy": 56.84905801392933
+        },
+        {
+          "time": 16.358823529411765,
+          "emotion": "energetic",
+          "brightness": 182.37588091563785,
+          "energy": 56.45066390663361
+        },
+        {
+          "time": 17.449411764705882,
+          "emotion": "energetic",
+          "brightness": 181.75692113554527,
+          "energy": 57.07165376328699
+        },
+        {
+          "time": 18.54,
+          "emotion": "energetic",
+          "brightness": 181.75692113554527,
+          "energy": 57.07165376328699
+        }
+      ],
+      "key_moments": [],
+      "quality_metrics": {},
+      "scenes": [],
+      "emotion_analysis": {
+        "target_emotion": null,
+        "detected_emotions": {
+          "silent": 9,
+          "happy": 7,
+          "neutral": 19,
+          "calm": 3
+        },
+        "segments": [
+          [
+            2.0,
+            12.0
+          ],
+          [
+            13.5,
+            16.0
+          ],
+          [
+            17.5,
+            18.57
+          ]
+        ],
+        "savings_percent": 26.925148088314486,
+        "timestamps": [
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          3.5,
+          4.0,
+          4.5,
+          5.0,
+          5.5,
+          6.0,
+          6.5,
+          7.0,
+          7.5,
+          8.0,
+          8.5,
+          9.0,
+          9.5,
+          10.0,
+          10.5,
+          11.0,
+          11.5,
+          12.0,
+          12.5,
+          13.0,
+          13.5,
+          14.0,
+          14.5,
+          15.0,
+          15.5,
+          16.0,
+          16.5,
+          17.0,
+          17.5,
+          18.0,
+          18.5
+        ],
+        "emotions_timeline": [
+          "silent",
+          "happy",
+          "silent",
+          "silent",
+          "neutral",
+          "neutral",
+          "happy",
+          "neutral",
+          "calm",
+          "silent",
+          "happy",
+          "neutral",
+          "silent",
+          "neutral",
+          "neutral",
+          "neutral",
+          "happy",
+          "neutral",
+          "calm",
+          "neutral",
+          "neutral",
+          "happy",
+          "neutral",
+          "calm",
+          "silent",
+          "neutral",
+          "neutral",
+          "neutral",
+          "neutral",
+          "silent",
+          "happy",
+          "happy",
+          "silent",
+          "neutral",
+          "silent",
+          "neutral",
+          "neutral",
+          "neutral"
+        ]
+      }
+    },
+    "completed_at": "2025-12-25T23:24:51.881911"
+  },
+  {
+    "id": "proj_28_20251226_014323",
+    "created_at": "2025-12-26T01:43:23.673437",
+    "status": "completed",
+    "input_video": "data/uploads/20251226_014323_emotion analysis.mp4",
+    "user_prompt": "",
+    "reference_video": null,
+    "background_music": null,
+    "platforms": [
+      "youtube",
+      "instagram",
+      "tiktok"
+    ],
+    "multiplatform": true,
+    "updated_at": "2025-12-26T01:49:52.865930",
+    "ai_analysis": {
+      "mode": "complete_auto",
+      "detected_emotion": "balanced",
+      "platform": "youtube",
+      "operations_count": 12
+    },
+    "creative_decisions": {
+      "target_emotion": null,
+      "trim_boring": true,
+      "remove_dull": true,
+      "bad_word_filter": true,
+      "audio_enhancement": true,
+      "visual_enhancement": true
+    },
+    "output_video": "data/outputs/proj_28_20251226_014323_output.mp4",
+    "editing_plan": {
+      "analysis": {
+        "mode": "complete_auto",
+        "detected_emotion": "balanced",
+        "platform": "youtube",
+        "operations_count": 12
+      },
+      "operations": [
+        {
+          "name": "remove_background_noise",
+          "priority": 1,
+          "params": {
+            "aggressiveness": 0.75
+          }
+        },
+        {
+          "name": "enhance_audio",
+          "priority": 2,
+          "params": {
+            "reduce_noise": true,
+            "normalize": true,
+            "auto_volume": true
+          }
+        },
+        {
+          "name": "detect_bad_words",
+          "priority": 3,
+          "params": {
+            "bad_words": [
+              "fuck",
+              "shit",
+              "damn",
+              "hell",
+              "ass",
+              "bitch",
+              "bastard",
+              "crap",
+              "piss",
+              "dick",
+              "cock"
+            ]
+          }
+        },
+        {
+          "name": "analyze_emotions",
+          "priority": 4,
+          "params": {
+            "track_faces": true,
+            "analyze_voice": true
+          }
+        },
+        {
+          "name": "trim_by_emotion",
+          "priority": 5,
+          "params": {
+            "target_emotion": null,
+            "keep_only_engaging": true,
+            "remove_boring": true,
+            "remove_dull": true
+          }
+        },
+        {
+          "name": "remove_silence",
+          "priority": 6,
+          "params": {
+            "silence_threshold": 0.02,
+            "min_silence": 0.5
+          }
+        },
+        {
+          "name": "remove_fillers",
+          "priority": 7,
+          "params": {}
+        },
+        {
+          "name": "brightness_adjustment",
+          "priority": 8,
+          "params": {
+            "auto": true
+          }
+        },
+        {
+          "name": "color_correction",
+          "priority": 9,
+          "params": {
+            "mood": "warm"
+          }
+        },
+        {
+          "name": "add_subtitles",
+          "priority": 10,
+          "params": {
+            "style": "standard",
+            "sync_with_audio": true
+          }
+        },
+        {
+          "name": "add_music",
+          "priority": 11,
+          "params": {
+            "mood": "upbeat",
+            "volume": 0.15,
+            "auto_select": true,
+            "music_path": null
+          }
+        },
+        {
+          "name": "platform_optimize",
+          "priority": 12,
+          "params": {
+            "platform": "youtube"
+          }
+        }
+      ],
+      "creative_decisions": {
+        "target_emotion": null,
+        "trim_boring": true,
+        "remove_dull": true,
+        "bad_word_filter": true,
+        "audio_enhancement": true,
+        "visual_enhancement": true
+      },
+      "explanation": "Complete AI pipeline with 12 operations"
+    },
+    "video_metadata": {
+      "emotions": [
+        {
+          "time": 0.0,
+          "emotion": "balanced",
+          "brightness": 124.11619333071279,
+          "energy": 54.55146832461458
+        },
+        {
+          "time": 2.613103448275862,
+          "emotion": "balanced",
+          "brightness": 123.87767786949685,
+          "energy": 68.2488145814821
+        },
+        {
+          "time": 5.226206896551724,
+          "emotion": "balanced",
+          "brightness": 117.22985210298742,
+          "energy": 66.19099524715755
+        },
+        {
+          "time": 7.839310344827586,
+          "emotion": "balanced",
+          "brightness": 112.9845739976415,
+          "energy": 59.89846819758517
+        },
+        {
+          "time": 10.452413793103448,
+          "emotion": "balanced",
+          "brightness": 110.00037260875263,
+          "energy": 57.51052817853898
+        },
+        {
+          "time": 13.06551724137931,
+          "emotion": "balanced",
+          "brightness": 108.16534902384696,
+          "energy": 57.895068715750895
+        },
+        {
+          "time": 15.678620689655173,
+          "emotion": "balanced",
+          "brightness": 130.26624574161426,
+          "energy": 57.830046396137284
+        },
+        {
+          "time": 18.291724137931034,
+          "emotion": "energetic",
+          "brightness": 173.716799331761,
+          "energy": 69.01612933207436
+        },
+        {
+          "time": 20.904827586206896,
+          "emotion": "calm",
+          "brightness": 66.37897995283019,
+          "energy": 71.30131083968884
+        },
+        {
+          "time": 23.517931034482757,
+          "emotion": "calm",
+          "brightness": 84.80511333857443,
+          "energy": 68.86099422894765
+        },
+        {
+          "time": 26.13103448275862,
+          "emotion": "calm",
+          "brightness": 71.50780021619497,
+          "energy": 66.37098403940486
+        },
+        {
+          "time": 28.74413793103448,
+          "emotion": "calm",
+          "brightness": 71.95311762971698,
+          "energy": 66.85349506204294
+        },
+        {
+          "time": 31.357241379310345,
+          "emotion": "calm",
+          "brightness": 82.66619333071279,
+          "energy": 66.3937368460433
+        },
+        {
+          "time": 33.9703448275862,
+          "emotion": "calm",
+          "brightness": 91.35893196409853,
+          "energy": 67.42659509753616
+        },
+        {
+          "time": 36.58344827586207,
+          "emotion": "calm",
+          "brightness": 90.71261874344864,
+          "energy": 68.16841743874316
+        },
+        {
+          "time": 39.196551724137926,
+          "emotion": "calm",
+          "brightness": 99.8263962591719,
+          "energy": 64.467135061373
+        },
+        {
+          "time": 41.80965517241379,
+          "emotion": "calm",
+          "brightness": 92.01562663784067,
+          "energy": 64.25832838229539
+        },
+        {
+          "time": 44.422758620689656,
+          "emotion": "balanced",
+          "brightness": 122.08703321540881,
+          "energy": 60.72642335441057
+        },
+        {
+          "time": 47.035862068965514,
+          "emotion": "balanced",
+          "brightness": 123.50059535508386,
+          "energy": 54.46072131708991
+        },
+        {
+          "time": 49.64896551724138,
+          "emotion": "calm",
+          "brightness": 91.36040520178197,
+          "energy": 64.64929599823145
+        },
+        {
+          "time": 52.26206896551724,
+          "emotion": "balanced",
+          "brightness": 123.73617990041929,
+          "energy": 54.70449007397655
+        },
+        {
+          "time": 54.8751724137931,
+          "emotion": "balanced",
+          "brightness": 116.53223352332284,
+          "energy": 61.164787993885646
+        },
+        {
+          "time": 57.48827586206896,
+          "emotion": "balanced",
+          "brightness": 101.54427984145703,
+          "energy": 65.48893965171939
+        },
+        {
+          "time": 60.101379310344825,
+          "emotion": "balanced",
+          "brightness": 115.72541764937107,
+          "energy": 62.42279423690092
+        },
+        {
+          "time": 62.71448275862069,
+          "emotion": "balanced",
+          "brightness": 104.78521603118449,
+          "energy": 67.05742477992534
+        },
+        {
+          "time": 65.32758620689656,
+          "emotion": "balanced",
+          "brightness": 123.7627727004717,
+          "energy": 54.29513409429648
+        },
+        {
+          "time": 67.9406896551724,
+          "emotion": "balanced",
+          "brightness": 107.66116597877358,
+          "energy": 62.79270016095999
+        },
+        {
+          "time": 70.55379310344827,
+          "emotion": "balanced",
+          "brightness": 114.0702781053459,
+          "energy": 70.03052555395519
+        },
+        {
+          "time": 73.16689655172414,
+          "emotion": "calm",
+          "brightness": 37.05488567872118,
+          "energy": 41.040684084709014
+        },
+        {
+          "time": 75.78,
+          "emotion": "calm",
+          "brightness": 37.05488567872118,
+          "energy": 41.040684084709014
+        }
+      ],
+      "key_moments": [],
+      "quality_metrics": {},
+      "scenes": [],
+      "emotion_analysis": {
+        "target_emotion": null,
+        "detected_emotions": {
+          "silent": 53,
+          "neutral": 51,
+          "happy": 24,
+          "calm": 18,
+          "sad": 3,
+          "excited": 3
+        },
+        "segments": [
+          [
+            2.0,
+            18.0
+          ],
+          [
+            20.0,
+            23.5
+          ],
+          [
+            24.5,
+            35.0
+          ],
+          [
+            38.0,
+            50.5
+          ],
+          [
+            54.0,
+            58.0
+          ],
+          [
+            62.0,
+            73.0
+          ]
+        ],
+        "savings_percent": 24.14248021108179,
+        "timestamps": [
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          3.5,
+          4.0,
+          4.5,
+          5.0,
+          5.5,
+          6.0,
+          6.5,
+          7.0,
+          7.5,
+          8.0,
+          8.5,
+          9.0,
+          9.5,
+          10.0,
+          10.5,
+          11.0,
+          11.5,
+          12.0,
+          12.5,
+          13.0,
+          13.5,
+          14.0,
+          14.5,
+          15.0,
+          15.5,
+          16.0,
+          16.5,
+          17.0,
+          17.5,
+          18.0,
+          18.5,
+          19.0,
+          19.5,
+          20.0,
+          20.5,
+          21.0,
+          21.5,
+          22.0,
+          22.5,
+          23.0,
+          23.5,
+          24.0,
+          24.5,
+          25.0,
+          25.5,
+          26.0,
+          26.5,
+          27.0,
+          27.5,
+          28.0,
+          28.5,
+          29.0,
+          29.5,
+          30.0,
+          30.5,
+          31.0,
+          31.5,
+          32.0,
+          32.5,
+          33.0,
+          33.5,
+          34.0,
+          34.5,
+          35.0,
+          35.5,
+          36.0,
+          36.5,
+          37.0,
+          37.5,
+          38.0,
+          38.5,
+          39.0,
+          39.5,
+          40.0,
+          40.5,
+          41.0,
+          41.5,
+          42.0,
+          42.5,
+          43.0,
+          43.5,
+          44.0,
+          44.5,
+          45.0,
+          45.5,
+          46.0,
+          46.5,
+          47.0,
+          47.5,
+          48.0,
+          48.5,
+          49.0,
+          49.5,
+          50.0,
+          50.5,
+          51.0,
+          51.5,
+          52.0,
+          52.5,
+          53.0,
+          53.5,
+          54.0,
+          54.5,
+          55.0,
+          55.5,
+          56.0,
+          56.5,
+          57.0,
+          57.5,
+          58.0,
+          58.5,
+          59.0,
+          59.5,
+          60.0,
+          60.5,
+          61.0,
+          61.5,
+          62.0,
+          62.5,
+          63.0,
+          63.5,
+          64.0,
+          64.5,
+          65.0,
+          65.5,
+          66.0,
+          66.5,
+          67.0,
+          67.5,
+          68.0,
+          68.5,
+          69.0,
+          69.5,
+          70.0,
+          70.5,
+          71.0,
+          71.5,
+          72.0,
+          72.5,
+          73.0,
+          73.5,
+          74.0,
+          74.5,
+          75.0,
+          75.5
+        ],
+        "emotions_timeline": [
+          "silent",
+          "silent",
+          "neutral",
+          "silent",
+          "neutral",
+          "happy",
+          "neutral",
+          "calm",
+          "happy",
+          "silent",
+          "happy",
+          "happy",
+          "calm",
+          "neutral",
+          "happy",
+          "calm",
+          "calm",
+          "calm",
+          "happy",
+          "silent",
+          "neutral",
+          "neutral",
+          "happy",
+          "happy",
+          "happy",
+          "neutral",
+          "silent",
+          "calm",
+          "silent",
+          "sad",
+          "silent",
+          "happy",
+          "happy",
+          "neutral",
+          "silent",
+          "silent",
+          "silent",
+          "silent",
+          "silent",
+          "silent",
+          "neutral",
+          "happy",
+          "silent",
+          "neutral",
+          "excited",
+          "neutral",
+          "neutral",
+          "silent",
+          "silent",
+          "neutral",
+          "neutral",
+          "happy",
+          "silent",
+          "neutral",
+          "neutral",
+          "silent",
+          "neutral",
+          "neutral",
+          "silent",
+          "neutral",
+          "neutral",
+          "silent",
+          "happy",
+          "happy",
+          "neutral",
+          "neutral",
+          "neutral",
+          "sad",
+          "happy",
+          "neutral",
+          "silent",
+          "silent",
+          "neutral",
+          "silent",
+          "happy",
+          "silent",
+          "silent",
+          "neutral",
+          "calm",
+          "excited",
+          "silent",
+          "happy",
+          "neutral",
+          "neutral",
+          "neutral",
+          "silent",
+          "sad",
+          "calm",
+          "calm",
+          "silent",
+          "silent",
+          "happy",
+          "silent",
+          "neutral",
+          "neutral",
+          "neutral",
+          "calm",
+          "happy",
+          "silent",
+          "neutral",
+          "neutral",
+          "silent",
+          "calm",
+          "silent",
+          "happy",
+          "silent",
+          "calm",
+          "silent",
+          "calm",
+          "happy",
+          "neutral",
+          "neutral",
+          "silent",
+          "neutral",
+          "neutral",
+          "neutral",
+          "silent",
+          "silent",
+          "neutral",
+          "silent",
+          "silent",
+          "silent",
+          "neutral",
+          "silent",
+          "neutral",
+          "calm",
+          "neutral",
+          "neutral",
+          "silent",
+          "neutral",
+          "happy",
+          "neutral",
+          "silent",
+          "calm",
+          "calm",
+          "silent",
+          "neutral",
+          "silent",
+          "calm",
+          "excited",
+          "happy",
+          "neutral",
+          "neutral",
+          "neutral",
+          "calm",
+          "neutral",
+          "silent",
+          "silent",
+          "silent",
+          "silent",
+          "silent",
+          "silent"
+        ]
+      }
+    },
+    "completed_at": "2025-12-26T01:49:52.825618"
+  },
+  {
+    "id": "proj_29_20251226_014956",
+    "created_at": "2025-12-26T01:49:56.827243",
+    "status": "completed",
+    "input_video": "data/uploads/20251226_014956_emotion analysis.mp4",
+    "user_prompt": "",
+    "reference_video": null,
+    "background_music": null,
+    "platforms": [
+      "youtube",
+      "instagram",
+      "tiktok"
+    ],
+    "multiplatform": true,
+    "updated_at": "2025-12-26T01:59:12.387370",
+    "ai_analysis": {
+      "mode": "complete_auto",
+      "detected_emotion": "balanced",
+      "platform": "youtube",
+      "operations_count": 12
+    },
+    "creative_decisions": {
+      "target_emotion": null,
+      "trim_boring": true,
+      "remove_dull": true,
+      "bad_word_filter": true,
+      "audio_enhancement": true,
+      "visual_enhancement": true
+    },
+    "output_video": "data/outputs/proj_29_20251226_014956_output.mp4",
+    "editing_plan": {
+      "analysis": {
+        "mode": "complete_auto",
+        "detected_emotion": "balanced",
+        "platform": "youtube",
+        "operations_count": 12
+      },
+      "operations": [
+        {
+          "name": "remove_background_noise",
+          "priority": 1,
+          "params": {
+            "aggressiveness": 0.75
+          }
+        },
+        {
+          "name": "enhance_audio",
+          "priority": 2,
+          "params": {
+            "reduce_noise": true,
+            "normalize": true,
+            "auto_volume": true
+          }
+        },
+        {
+          "name": "detect_bad_words",
+          "priority": 3,
+          "params": {
+            "bad_words": [
+              "fuck",
+              "shit",
+              "damn",
+              "hell",
+              "ass",
+              "bitch",
+              "bastard",
+              "crap",
+              "piss",
+              "dick",
+              "cock"
+            ]
+          }
+        },
+        {
+          "name": "analyze_emotions",
+          "priority": 4,
+          "params": {
+            "track_faces": true,
+            "analyze_voice": true
+          }
+        },
+        {
+          "name": "trim_by_emotion",
+          "priority": 5,
+          "params": {
+            "target_emotion": null,
+            "keep_only_engaging": true,
+            "remove_boring": true,
+            "remove_dull": true
+          }
+        },
+        {
+          "name": "remove_silence",
+          "priority": 6,
+          "params": {
+            "silence_threshold": 0.02,
+            "min_silence": 0.5
+          }
+        },
+        {
+          "name": "remove_fillers",
+          "priority": 7,
+          "params": {}
+        },
+        {
+          "name": "brightness_adjustment",
+          "priority": 8,
+          "params": {
+            "auto": true
+          }
+        },
+        {
+          "name": "color_correction",
+          "priority": 9,
+          "params": {
+            "mood": "warm"
+          }
+        },
+        {
+          "name": "add_subtitles",
+          "priority": 10,
+          "params": {
+            "style": "standard",
+            "sync_with_audio": true
+          }
+        },
+        {
+          "name": "add_music",
+          "priority": 11,
+          "params": {
+            "mood": "upbeat",
+            "volume": 0.15,
+            "auto_select": true,
+            "music_path": null
+          }
+        },
+        {
+          "name": "platform_optimize",
+          "priority": 12,
+          "params": {
+            "platform": "youtube"
+          }
+        }
+      ],
+      "creative_decisions": {
+        "target_emotion": null,
+        "trim_boring": true,
+        "remove_dull": true,
+        "bad_word_filter": true,
+        "audio_enhancement": true,
+        "visual_enhancement": true
+      },
+      "explanation": "Complete AI pipeline with 12 operations"
+    },
+    "video_metadata": {
+      "emotions": [
+        {
+          "time": 0.0,
+          "emotion": "balanced",
+          "brightness": 124.11619333071279,
+          "energy": 54.55146832461458
+        },
+        {
+          "time": 2.613103448275862,
+          "emotion": "balanced",
+          "brightness": 123.87767786949685,
+          "energy": 68.2488145814821
+        },
+        {
+          "time": 5.226206896551724,
+          "emotion": "balanced",
+          "brightness": 117.22985210298742,
+          "energy": 66.19099524715755
+        },
+        {
+          "time": 7.839310344827586,
+          "emotion": "balanced",
+          "brightness": 112.9845739976415,
+          "energy": 59.89846819758517
+        },
+        {
+          "time": 10.452413793103448,
+          "emotion": "balanced",
+          "brightness": 110.00037260875263,
+          "energy": 57.51052817853898
+        },
+        {
+          "time": 13.06551724137931,
+          "emotion": "balanced",
+          "brightness": 108.16534902384696,
+          "energy": 57.895068715750895
+        },
+        {
+          "time": 15.678620689655173,
+          "emotion": "balanced",
+          "brightness": 130.26624574161426,
+          "energy": 57.830046396137284
+        },
+        {
+          "time": 18.291724137931034,
+          "emotion": "energetic",
+          "brightness": 173.716799331761,
+          "energy": 69.01612933207436
+        },
+        {
+          "time": 20.904827586206896,
+          "emotion": "calm",
+          "brightness": 66.37897995283019,
+          "energy": 71.30131083968884
+        },
+        {
+          "time": 23.517931034482757,
+          "emotion": "calm",
+          "brightness": 84.80511333857443,
+          "energy": 68.86099422894765
+        },
+        {
+          "time": 26.13103448275862,
+          "emotion": "calm",
+          "brightness": 71.50780021619497,
+          "energy": 66.37098403940486
+        },
+        {
+          "time": 28.74413793103448,
+          "emotion": "calm",
+          "brightness": 71.95311762971698,
+          "energy": 66.85349506204294
+        },
+        {
+          "time": 31.357241379310345,
+          "emotion": "calm",
+          "brightness": 82.66619333071279,
+          "energy": 66.3937368460433
+        },
+        {
+          "time": 33.9703448275862,
+          "emotion": "calm",
+          "brightness": 91.35893196409853,
+          "energy": 67.42659509753616
+        },
+        {
+          "time": 36.58344827586207,
+          "emotion": "calm",
+          "brightness": 90.71261874344864,
+          "energy": 68.16841743874316
+        },
+        {
+          "time": 39.196551724137926,
+          "emotion": "calm",
+          "brightness": 99.8263962591719,
+          "energy": 64.467135061373
+        },
+        {
+          "time": 41.80965517241379,
+          "emotion": "calm",
+          "brightness": 92.01562663784067,
+          "energy": 64.25832838229539
+        },
+        {
+          "time": 44.422758620689656,
+          "emotion": "balanced",
+          "brightness": 122.08703321540881,
+          "energy": 60.72642335441057
+        },
+        {
+          "time": 47.035862068965514,
+          "emotion": "balanced",
+          "brightness": 123.50059535508386,
+          "energy": 54.46072131708991
+        },
+        {
+          "time": 49.64896551724138,
+          "emotion": "calm",
+          "brightness": 91.36040520178197,
+          "energy": 64.64929599823145
+        },
+        {
+          "time": 52.26206896551724,
+          "emotion": "balanced",
+          "brightness": 123.73617990041929,
+          "energy": 54.70449007397655
+        },
+        {
+          "time": 54.8751724137931,
+          "emotion": "balanced",
+          "brightness": 116.53223352332284,
+          "energy": 61.164787993885646
+        },
+        {
+          "time": 57.48827586206896,
+          "emotion": "balanced",
+          "brightness": 101.54427984145703,
+          "energy": 65.48893965171939
+        },
+        {
+          "time": 60.101379310344825,
+          "emotion": "balanced",
+          "brightness": 115.72541764937107,
+          "energy": 62.42279423690092
+        },
+        {
+          "time": 62.71448275862069,
+          "emotion": "balanced",
+          "brightness": 104.78521603118449,
+          "energy": 67.05742477992534
+        },
+        {
+          "time": 65.32758620689656,
+          "emotion": "balanced",
+          "brightness": 123.7627727004717,
+          "energy": 54.29513409429648
+        },
+        {
+          "time": 67.9406896551724,
+          "emotion": "balanced",
+          "brightness": 107.66116597877358,
+          "energy": 62.79270016095999
+        },
+        {
+          "time": 70.55379310344827,
+          "emotion": "balanced",
+          "brightness": 114.0702781053459,
+          "energy": 70.03052555395519
+        },
+        {
+          "time": 73.16689655172414,
+          "emotion": "calm",
+          "brightness": 37.05488567872118,
+          "energy": 41.040684084709014
+        },
+        {
+          "time": 75.78,
+          "emotion": "calm",
+          "brightness": 37.05488567872118,
+          "energy": 41.040684084709014
+        }
+      ],
+      "key_moments": [],
+      "quality_metrics": {},
+      "scenes": [],
+      "emotion_analysis": {
+        "target_emotion": null,
+        "detected_emotions": {
+          "silent": 53,
+          "neutral": 51,
+          "happy": 24,
+          "calm": 18,
+          "sad": 3,
+          "excited": 3
+        },
+        "segments": [
+          [
+            2.0,
+            18.0
+          ],
+          [
+            20.0,
+            23.5
+          ],
+          [
+            24.5,
+            35.0
+          ],
+          [
+            38.0,
+            50.5
+          ],
+          [
+            54.0,
+            58.0
+          ],
+          [
+            62.0,
+            73.0
+          ]
+        ],
+        "savings_percent": 24.14248021108179,
+        "timestamps": [
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          3.5,
+          4.0,
+          4.5,
+          5.0,
+          5.5,
+          6.0,
+          6.5,
+          7.0,
+          7.5,
+          8.0,
+          8.5,
+          9.0,
+          9.5,
+          10.0,
+          10.5,
+          11.0,
+          11.5,
+          12.0,
+          12.5,
+          13.0,
+          13.5,
+          14.0,
+          14.5,
+          15.0,
+          15.5,
+          16.0,
+          16.5,
+          17.0,
+          17.5,
+          18.0,
+          18.5,
+          19.0,
+          19.5,
+          20.0,
+          20.5,
+          21.0,
+          21.5,
+          22.0,
+          22.5,
+          23.0,
+          23.5,
+          24.0,
+          24.5,
+          25.0,
+          25.5,
+          26.0,
+          26.5,
+          27.0,
+          27.5,
+          28.0,
+          28.5,
+          29.0,
+          29.5,
+          30.0,
+          30.5,
+          31.0,
+          31.5,
+          32.0,
+          32.5,
+          33.0,
+          33.5,
+          34.0,
+          34.5,
+          35.0,
+          35.5,
+          36.0,
+          36.5,
+          37.0,
+          37.5,
+          38.0,
+          38.5,
+          39.0,
+          39.5,
+          40.0,
+          40.5,
+          41.0,
+          41.5,
+          42.0,
+          42.5,
+          43.0,
+          43.5,
+          44.0,
+          44.5,
+          45.0,
+          45.5,
+          46.0,
+          46.5,
+          47.0,
+          47.5,
+          48.0,
+          48.5,
+          49.0,
+          49.5,
+          50.0,
+          50.5,
+          51.0,
+          51.5,
+          52.0,
+          52.5,
+          53.0,
+          53.5,
+          54.0,
+          54.5,
+          55.0,
+          55.5,
+          56.0,
+          56.5,
+          57.0,
+          57.5,
+          58.0,
+          58.5,
+          59.0,
+          59.5,
+          60.0,
+          60.5,
+          61.0,
+          61.5,
+          62.0,
+          62.5,
+          63.0,
+          63.5,
+          64.0,
+          64.5,
+          65.0,
+          65.5,
+          66.0,
+          66.5,
+          67.0,
+          67.5,
+          68.0,
+          68.5,
+          69.0,
+          69.5,
+          70.0,
+          70.5,
+          71.0,
+          71.5,
+          72.0,
+          72.5,
+          73.0,
+          73.5,
+          74.0,
+          74.5,
+          75.0,
+          75.5
+        ],
+        "emotions_timeline": [
+          "silent",
+          "silent",
+          "neutral",
+          "silent",
+          "neutral",
+          "happy",
+          "neutral",
+          "calm",
+          "happy",
+          "silent",
+          "happy",
+          "happy",
+          "calm",
+          "neutral",
+          "happy",
+          "calm",
+          "calm",
+          "calm",
+          "happy",
+          "silent",
+          "neutral",
+          "neutral",
+          "happy",
+          "happy",
+          "happy",
+          "neutral",
+          "silent",
+          "calm",
+          "silent",
+          "sad",
+          "silent",
+          "happy",
+          "happy",
+          "neutral",
+          "silent",
+          "silent",
+          "silent",
+          "silent",
+          "silent",
+          "silent",
+          "neutral",
+          "happy",
+          "silent",
+          "neutral",
+          "excited",
+          "neutral",
+          "neutral",
+          "silent",
+          "silent",
+          "neutral",
+          "neutral",
+          "happy",
+          "silent",
+          "neutral",
+          "neutral",
+          "silent",
+          "neutral",
+          "neutral",
+          "silent",
+          "neutral",
+          "neutral",
+          "silent",
+          "happy",
+          "happy",
+          "neutral",
+          "neutral",
+          "neutral",
+          "sad",
+          "happy",
+          "neutral",
+          "silent",
+          "silent",
+          "neutral",
+          "silent",
+          "happy",
+          "silent",
+          "silent",
+          "neutral",
+          "calm",
+          "excited",
+          "silent",
+          "happy",
+          "neutral",
+          "neutral",
+          "neutral",
+          "silent",
+          "sad",
+          "calm",
+          "calm",
+          "silent",
+          "silent",
+          "happy",
+          "silent",
+          "neutral",
+          "neutral",
+          "neutral",
+          "calm",
+          "happy",
+          "silent",
+          "neutral",
+          "neutral",
+          "silent",
+          "calm",
+          "silent",
+          "happy",
+          "silent",
+          "calm",
+          "silent",
+          "calm",
+          "happy",
+          "neutral",
+          "neutral",
+          "silent",
+          "neutral",
+          "neutral",
+          "neutral",
+          "silent",
+          "silent",
+          "neutral",
+          "silent",
+          "silent",
+          "silent",
+          "neutral",
+          "silent",
+          "neutral",
+          "calm",
+          "neutral",
+          "neutral",
+          "silent",
+          "neutral",
+          "happy",
+          "neutral",
+          "silent",
+          "calm",
+          "calm",
+          "silent",
+          "neutral",
+          "silent",
+          "calm",
+          "excited",
+          "happy",
+          "neutral",
+          "neutral",
+          "neutral",
+          "calm",
+          "neutral",
+          "silent",
+          "silent",
+          "silent",
+          "silent",
+          "silent",
+          "silent"
+        ]
+      }
+    },
+    "completed_at": "2025-12-26T01:59:12.197505"
+  },
+  {
+    "id": "proj_30_20251226_014956",
+    "created_at": "2025-12-26T01:49:56.934380",
+    "status": "uploaded",
+    "input_video": "data/uploads/20251226_014956_emotion analysis.mp4",
+    "user_prompt": "",
+    "reference_video": null,
+    "background_music": null,
+    "platforms": [
+      "youtube",
+      "instagram",
+      "tiktok"
+    ],
+    "multiplatform": true
+  },
+  {
+    "id": "proj_31_20251226_015913",
+    "created_at": "2025-12-26T01:59:13.655767",
+    "status": "uploaded",
+    "input_video": "data/uploads/20251226_015913_emotion analysis.mp4",
+    "user_prompt": "",
+    "reference_video": null,
+    "background_music": null,
+    "platforms": [
+      "youtube",
+      "instagram",
+      "tiktok"
+    ],
+    "multiplatform": true
+  },
+  {
+    "id": "proj_32_20251226_015914",
+    "created_at": "2025-12-26T01:59:15.007009",
+    "status": "uploaded",
+    "input_video": "data/uploads/20251226_015914_emotion analysis.mp4",
+    "user_prompt": "",
+    "reference_video": null,
+    "background_music": null,
+    "platforms": [
+      "youtube",
+      "instagram",
+      "tiktok"
+    ],
+    "multiplatform": true
   }
 ]

@@ -1,36 +1,35 @@
-# requirements.txt - COMPLETE DEPENDENCIES
+# Backend Requirements - VisionCut AI
+# Python 3.10 REQUIRED
 
-# Core Framework
+# Web Framework
 fastapi==0.104.1
-uvicorn[standard]==0.24.0
+uvicorn==0.24.0
 python-multipart==0.0.6
 python-dotenv==1.0.0
-pydantic==2.5.0
 
-# Frontend
-streamlit==1.28.0
-
-# Video Processing
+# Video / Image Processing
 moviepy==1.0.3
 opencv-python==4.8.1.78
-Pillow==10.1.0
+pillow==10.1.0
 
 # Audio Processing
 librosa==0.10.1
 soundfile==0.12.1
 noisereduce==3.0.0
-scipy==1.11.4
 pydub==0.25.1
 
-# AI/ML
-whisper==1.1.10
+# AI / ML (COMPATIBLE SET)
+torch==2.1.0
+torchaudio==2.1.0
 openai-whisper==20231117
-torch==2.1.1
-torchaudio==2.1.1
+
+# Scientific
 numpy==1.24.3
+scipy==1.11.4
 
 # Utilities
 requests==2.31.0
+colorama==0.4.6
 
-# Additional Tools
-ffmpeg-python==0.2.0
+# Data Validation
+pydantic==2.5.0
